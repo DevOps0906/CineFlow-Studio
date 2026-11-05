@@ -1,0 +1,42 @@
+﻿@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --text: #f2efe9;
+  --muted: #a8a39a;
+  --accent: #c8a45c;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+html { background: var(--bg); color-scheme: dark; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; font-size: 16px; overflow-x: clip; }
+@media (min-width: 768px) { body { font-size: 17px; } }
+@media (min-width: 1440px) { body { font-size: 18px; } }
+
+h1, h2, h3 { font-family: var(--font-serif); }
+h1 { font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: 28px; line-height: 1.15; }
+@media (min-width: 768px) { h1 { font-size: 64px; } h2 { font-size: 40px; } }
+@media (min-width: 1440px) { h1 { font-size: 96px; } h2 { font-size: 56px; } }
+
+.section-pad { padding-block: 96px; }
+@media (min-width: 768px) { .section-pad { padding-block: 128px; } }
+@media (min-width: 1440px) { .section-pad { padding-block: 160px; } }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: #000; padding: 8px 16px; z-index: 100; }
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* Motion initial states are applied by JS only (data-motion-ready) so no-JS and reduced-motion users see content. */
+[data-motion-ready] [data-m="blur-in"] { opacity: 0; filter: blur(12px); transform: translateY(16px); }
+[data-motion-ready] [data-m="reveal"] { clip-path: inset(0 0 100% 0); }
