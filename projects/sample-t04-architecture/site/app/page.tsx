@@ -1,5 +1,5 @@
 ﻿import MotionRoot from "@/components/MotionRoot";
-import { CTA, Features, Footer, Hero, Proof, Showcase } from "@/components/sections/Sections";
+import { Contact, Footer, Hero, Principles, Process, Proof, Works } from "@/components/sections/Sections";
 
 export default function Home() {
   return (
@@ -7,9 +7,10 @@ export default function Home() {
       <Hero />
       <main id="main">
         <Proof />
-        <Features />
-        <Showcase />
-        <CTA />
+        <Principles />
+        <Process />
+        <Works />
+        <Contact />
       </main>
       <Footer />
     </MotionRoot>

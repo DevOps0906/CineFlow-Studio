@@ -37,8 +37,8 @@
 }
 
 @media (width >= 768px) {
-  :root { --text-display: 80px; --text-h1: 52px; --text-h2: 34px; --text-body: 16px; --text-caption: 12px; }
+  :root { --text-display: 72px; --text-h1: 52px; --text-h2: 34px; --text-body: 16px; --text-caption: 12px; }
 }
 @media (width >= 1200px) {
-  :root { --text-display: 120px; --text-h1: 68px; --text-h2: 44px; --text-body: 17px; --text-caption: 13px; }
+  :root { --text-display: 96px; --text-h1: 68px; --text-h2: 44px; --text-body: 17px; --text-caption: 13px; }
 }

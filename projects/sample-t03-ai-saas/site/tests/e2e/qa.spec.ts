@@ -1,4 +1,4 @@
-﻿import { test, expect } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import fs from "node:fs";
 
 const viewports = [{ name: "mobile", width: 390, height: 844 }, { name: "tablet", width: 768, height: 1024 }, { name: "desktop", width: 1440, height: 900 }];
@@ -12,6 +12,8 @@ for (const vp of viewports) {
     page.on("pageerror", (e) => errors.push(e.message));
     page.on("response", (r) => r.status() >= 400 && errors.push(`${r.status()} ${r.url()}`));
     await page.goto("/");
+    await page.waitForTimeout(1500);
+    await page.screenshot({ path: `qa-evidence/${vp.name}-hero.png` });
     await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); } });
     await page.waitForTimeout(1200);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -25,13 +27,14 @@ for (const vp of viewports) {
 test("structure: h1, alt/aria for mocks, meta, CTA keyboard", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("h1")).toHaveCount(1);
-  await expect(page.locator("h1")).toContainText("반복 업무를 흐름으로 바꾸세요");
+  await expect(page.locator("h1")).toContainText("Turn repetition into flow.");
   expect(await page.locator("img:not([alt])").count()).toBe(0);
   await expect(page).toHaveTitle(/NOVA Flow/);
   await expect(page.locator('meta[name="description"]')).toHaveCount(1);
-  await page.keyboard.press("Tab");
-  await page.keyboard.press("Tab");
-  expect(await page.evaluate(() => (document.activeElement as HTMLAnchorElement)?.href)).toContain("mailto:");
+  const cta = page.locator("[data-cta]");
+  await expect(cta).toHaveAttribute("href", /^mailto:/);
+  await cta.focus();
+  await expect(cta).toBeFocused();
 });
 
 test("reduced motion: no motion init, split words visible, pin off", async ({ browser }) => {

@@ -1,4 +1,4 @@
-﻿# NOVA Flow — spec.md (v0.1, 승인됨)
+# NOVA Flow — spec.md (v0.1, 승인됨)
 
 ## 0. Brief
 - 타깃: 운영 자동화를 검토하는 스타트업/팀 리더 / 분위기: 명료한·지능적·가벼운
@@ -16,13 +16,10 @@ Next.js App Router / TypeScript / Tailwind / GSAP (R3F 미사용). 앱 위치: `
 | tests/e2e/* | QA | Playwright |
 
 ## 2. Design Tokens
-- 폰트: 제목 Space Grotesk(OFL), 본문 Inter(OFL), 한글은 시스템 폰트 fallback
-- 크기(모바일/태블릿/데스크톱): H1 40/60/84px, H2 28/38/52px, 본문 16/17/18px / 자간 H1 -0.03em / 행간 H1 1.05, 본문 1.6
-- 색상: bg #f7f8fc, surface #ffffff, ink #0b1020, muted #4b5266 (ink/bg 대비 ≥ 15:1, muted/bg ≥ 7:1), accent #3730a3 (accent/bg ≥ 9:1), accent-soft #e0e7ff
-- 간격 8px 단위, 섹션 세로 패딩 80/112/144px
-- 모션 규칙: transform/opacity 위주, 기본 easing power3.out
+v0.2: **3B Dark Terminal** — 정답 소스 `design/t03/tokens.css` (대비 검사 통과, 미리보기 `design/t03/preview.html`, 히어로 시안 `design/moodboard.html`). 사이트 `site/app/globals.css`는 이 토큰의 사본. 폰트는 OFL(next/font + pretendard 패키지 self-host).
 
 ## 3. Section Blueprint
+v0.2 섹션 구성: Hero(워크플로 데모) → Logos(Proof) → Product(Features) → How it works(Showcase, M04) → Demo(CTA) → Footer. 아래 표는 v0.1 기록.
 | 섹션 | 목표 | 메시지 | 미디어 | 모션 | 반응형 |
 |---|---|---|---|---|---|
 | Hero | 가치 전달 | 반복 업무를 흐름으로 바꾸세요 | UI 목업(HTML/SVG) | M02(h1), M01, M07 | 목업은 모바일에서 하단 배치 |
@@ -60,4 +57,4 @@ PRD §9 적용. 뷰포트 390/768/1440. Lighthouse 접근성 ≥ 95, title/descr
 6. M02: 모션 활성 시 h1 단어가 모두 opacity 1로 도달
 
 ## 8. Approval
-디자인 승인자: 프로젝트 오너 (2026-11-06 승인) / 코드 리뷰어: 미정 / QA 승인자: 미정 / 버전: v0.1 (승인됨). 앱 위치: projects/sample-t03-ai-saas/site
+디자인 승인자: 프로젝트 오너 (2026-11-06 승인) / 코드 리뷰어: 미정 / QA 승인자: 미정 / 버전: v0.2 (승인됨, B안 디자인 승인 2026-11-06). 앱 위치: projects/sample-t03-ai-saas/site

@@ -1,4 +1,4 @@
-﻿# AURUM Noir — spec.md (샘플, 초안)
+# AURUM Noir — spec.md (샘플, 초안)
 
 ## 0. Brief
 - 타깃: 30~55세 고소득 구매자 / 분위기: 어두운·정밀한·절제된
@@ -18,14 +18,10 @@ Next.js App Router / TypeScript / Tailwind / GSAP (R3F 미사용)
 동일 파일 동시 수정 금지.
 
 ## 2. Design Tokens
-- 폰트: 제목 Cormorant Garamond(OFL), 본문 Inter(OFL)
-- 크기(모바일/태블릿/데스크톱): H1 40/64/96px, H2 28/40/56px, 본문 16/17/18px
-- 자간: H1 -0.02em, 본문 0 / 행간: H1 1.05, 본문 1.6
-- 색상: bg #0A0A0B, surface #141416, text #F2EFE9, muted #A8A39A, accent #C8A45C (text/bg 대비 ≥ 12:1, accent/bg ≥ 7:1)
-- 간격 단위 8px, 섹션 세로 패딩 96/128/160px
-- 모션 규칙: transform/opacity만, 기본 easing power3.out, 기본 700ms
+v0.2: **1B Midnight Ivory** — 정답 소스 `design/t01/tokens.css` (대비 검사 통과, 미리보기 `design/t01/preview.html`, 히어로 시안 `design/moodboard.html`). 사이트 `site/app/globals.css`는 이 토큰의 사본. 폰트는 OFL(next/font + pretendard 패키지 self-host).
 
 ## 3. Section Blueprint
+v0.2 섹션 구성: Hero(다이얼 시그니처) → Manifesto(Proof) → Anatomy(Features) → Film(Showcase, M05) → Appointment(CTA) → Footer. 아래 표는 v0.1 기록.
 | 섹션 | 목표 | 메시지 | 미디어 | 모션 | 반응형 |
 |---|---|---|---|---|---|
 | Hero | 첫인상 | 시간을 빚는 정밀함 | hero 영상 루프 + 포스터 | M05, M01, M07(CTA) | 모바일은 경량 영상 |
@@ -68,5 +64,5 @@ PRD §9 기준 적용. 뷰포트 390/768/1440. Lighthouse 접근성 ≥ 95, titl
 7. 모든 이미지 alt, 헤딩 순서 h1→h2 정상
 
 ## 8. Approval
-디자인 승인자: 프로젝트 오너 (2026-11-06 승인) / 코드 리뷰어: 미정 / QA 승인자: 미정 / 버전: v0.1 (승인됨, 에셋은 플레이스홀더 한정). 앱 위치: projects/sample-t01-luxury/site
+디자인 승인자: 프로젝트 오너 (2026-11-06 승인) / 코드 리뷰어: 미정 / QA 승인자: 미정 / 버전: v0.2 (승인됨, B안 디자인 승인 2026-11-06, 에셋은 플레이스홀더 한정). 앱 위치: projects/sample-t01-luxury/site
 

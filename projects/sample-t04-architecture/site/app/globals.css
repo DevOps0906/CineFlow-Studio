@@ -1,38 +1,97 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
-:root { --bg: #e9e6e0; --surface: #f5f3ef; --ink: #1a1917; --muted: #4a4741; --accent: #6b4423; --dark: #1f1e1b; }
+/* Mirrors design/t04/tokens.css (4B Light Study, approved 2026-11-06). Change the design token first, then here. */
+@theme {
+  --color-bg: #111111;
+  --color-surface: #1b1a18;
+  --color-text: #f2eee6;
+  --color-text-muted: #a8a196;
+  --color-border: #2e2c28;
+  --color-primary: #f2b872;
+  --color-primary-fg: #111111;
+  --color-stone: #d9d3c7;
+  --color-stone-fg: #111111;
 
+  --text-display: 52px;
+  --text-h1: 38px;
+  --text-h2: 26px;
+  --text-body: 16px;
+  --text-caption: 11px;
+  --tracking-display: -0.05em;
+  --tracking-caption: 0.2em;
+}
 @theme inline {
-  --color-bg: var(--bg); --color-surface: var(--surface); --color-ink: var(--ink);
-  --color-muted: var(--muted); --color-accent: var(--accent); --color-dark: var(--dark);
-  --font-serif: var(--font-cormorant), serif;
-  --font-sans: var(--font-inter), system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-display: var(--font-inter-tight), "Pretendard Variable", sans-serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+@media (width >= 768px) {
+  :root { --text-display: 96px; --text-h1: 60px; --text-h2: 36px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  :root { --text-display: 152px; --text-h1: 80px; --text-h2: 48px; --text-body: 18px; }
 }
 
-html { background: var(--bg); }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); line-height: 1.6; font-size: 16px; overflow-x: clip; }
-@media (min-width: 768px) { body { font-size: 17px; } }
-@media (min-width: 1440px) { body { font-size: 18px; } }
-
-h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; }
-h1 { font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; }
-h2 { font-size: 28px; line-height: 1.15; }
-@media (min-width: 768px) { h1 { font-size: 64px; } h2 { font-size: 40px; } }
-@media (min-width: 1440px) { h1 { font-size: 92px; } h2 { font-size: 54px; } }
-
-.section-pad { padding-block: 96px; }
-@media (min-width: 768px) { .section-pad { padding-block: 128px; } }
-@media (min-width: 1440px) { .section-pad { padding-block: 160px; } }
-
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: #fff; padding: 8px 16px; z-index: 100; }
+html { background: var(--color-bg); color-scheme: dark; scroll-behavior: smooth; }
+body {
+  background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans);
+  font-size: var(--text-body); line-height: 1.7; overflow-x: clip; -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-primary); color: var(--color-primary-fg); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+.skip-link { position: absolute; left: -999px; top: 0; z-index: 100; background: var(--color-primary); color: var(--color-primary-fg); padding: 8px 16px; }
 .skip-link:focus { left: 8px; top: 8px; }
 
-[data-motion-ready] [data-m="blur-in"] { opacity: 0; filter: blur(12px); transform: translateY(16px); }
+.caption { font-family: var(--font-mono); font-size: var(--text-caption); letter-spacing: var(--tracking-caption); text-transform: uppercase; }
+.outline-text { color: transparent; -webkit-text-stroke: 1px rgb(242 238 230 / .55); }
+.anno::before { content: ""; display: inline-block; width: 28px; height: 1px; margin-right: 10px; vertical-align: middle; background: currentColor; }
+
+.grain { position: relative; }
+.grain::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Signature: light study scene, driven by --beam / --glow / --warm / --cast ---------- */
+.light-scene { --beam: 115deg; --glow: .8; --warm: .5; --cast: -10deg; }
+.light-beam { position: absolute; inset: 0; background: linear-gradient(var(--beam), transparent 36%, rgb(242 184 114 / calc(.24 * var(--glow))) 46%, rgb(242 184 114 / calc(.07 * var(--glow))) 58%, transparent 68%); }
+.scene-wall { position: absolute; right: 0; top: 0; width: 58%; height: 100%; background: linear-gradient(90deg, #161514, #1d1b19); }
+.scene-slab { position: absolute; right: 9%; top: 24%; width: 46%; height: 46%; background: linear-gradient(160deg, #2a2723 0%, #1a1917 70%); box-shadow: -60px 80px 120px -40px rgb(0 0 0 / .9); }
+.scene-slit {
+  --slit: color-mix(in oklab, #f7e2bf, #ee9448 calc(var(--warm) * 100%));
+  position: absolute; right: 22%; top: 24%; width: 3.2%; height: 46%;
+  background: linear-gradient(180deg, var(--slit), color-mix(in oklab, var(--slit), white 35%) 50%, var(--slit));
+  box-shadow: 0 0 60px 10px color-mix(in oklab, var(--slit) calc(var(--glow) * 45%), transparent);
+  opacity: calc(.5 + .5 * var(--glow));
+}
+.scene-floor { position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(180deg, #151413, #0d0d0c); border-top: 1px solid var(--color-border); }
+.scene-cast {
+  position: absolute; right: 2%; top: 70%; width: 46%; height: 30%;
+  background: linear-gradient(180deg, rgb(242 184 114 / calc(.28 * var(--glow))), transparent);
+  clip-path: polygon(39% 0, 46% 0, 100% 100%, 64% 100%); transform-origin: 42% 0; transform: skewX(var(--cast)); filter: blur(6px);
+}
+@media (width < 768px) {
+  .scene-wall { width: 100%; opacity: .7; }
+  .scene-slab { right: 8%; top: 25%; width: 62%; height: 27%; }
+  .scene-slit { right: 27%; top: 25%; width: 4.5%; height: 27%; }
+  .scene-floor { height: 48%; }
+  .scene-cast { top: 52%; right: 4%; width: 62%; height: 48%; }
+}
+
+.light-range { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: pointer; }
+.light-range::-webkit-slider-runnable-track { height: 1px; background: linear-gradient(90deg, #6b5a44, var(--color-primary) var(--pct), var(--color-border) var(--pct)); }
+.light-range::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; margin-top: -7.5px; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 20px rgb(242 184 114 / .8); }
+.light-range::-moz-range-track { height: 1px; background: linear-gradient(90deg, #6b5a44, var(--color-primary) var(--pct), var(--color-border) var(--pct)); }
+.light-range::-moz-range-thumb { width: 16px; height: 16px; border: 0; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 20px rgb(242 184 114 / .8); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Motion initial states only after JS opts in */
+[data-motion-ready] [data-m="blur-in"] { opacity: 0; filter: blur(12px); transform: translateY(18px); }
 [data-motion-ready] [data-m="reveal"] { clip-path: inset(0 0 100% 0); }
 
-/* M04: step emphasis only while pinned */
-[data-pin-on] [data-step] { opacity: .4; transition: opacity .4s; }
+/* M04: emphasise the active step while pinned */
+[data-pin-on] [data-step] { opacity: .35; border-color: var(--color-border); transition: opacity .4s, border-color .4s; }
 [data-pin-on][data-active="0"] [data-step="0"],
 [data-pin-on][data-active="1"] [data-step="1"],
-[data-pin-on][data-active="2"] [data-step="2"] { opacity: 1; }
+[data-pin-on][data-active="2"] [data-step="2"] { opacity: 1; border-color: var(--color-primary); }

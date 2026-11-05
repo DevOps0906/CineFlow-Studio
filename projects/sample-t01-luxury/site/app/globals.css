@@ -1,42 +1,92 @@
 ﻿@import "tailwindcss";
 
-:root {
-  --bg: #0a0a0b;
-  --surface: #141416;
-  --text: #f2efe9;
-  --muted: #a8a39a;
-  --accent: #c8a45c;
-}
+/* Mirrors design/t01/tokens.css (1B Midnight Ivory, approved 2026-11-06). Change the design token first, then here. */
+@theme {
+  --color-bg: #0b1020;
+  --color-surface: #121a30;
+  --color-text: #efe9dc;
+  --color-text-muted: #a9a79e;
+  --color-border: #253050;
+  --color-primary: #c98a5a;
+  --color-primary-fg: #0b1020;
+  --color-ivory: #efe9dc;
+  --color-ivory-fg: #0b1020;
 
+  --text-display: 56px;
+  --text-h1: 40px;
+  --text-h2: 28px;
+  --text-body: 16px;
+  --text-caption: 12px;
+  --tracking-display: -0.03em;
+  --tracking-caption: 0.24em;
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+}
 @theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-text: var(--text);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --font-serif: var(--font-cormorant), serif;
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-instrument), "Cormorant Garamond", serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+@media (width >= 768px) {
+  :root { --text-display: 104px; --text-h1: 64px; --text-h2: 40px; --text-body: 17px; }
+}
+@media (width >= 1200px) {
+  :root { --text-display: 168px; --text-h1: 88px; --text-h2: 52px; --text-body: 18px; --text-caption: 13px; }
 }
 
-html { background: var(--bg); color-scheme: dark; }
-body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; font-size: 16px; overflow-x: clip; }
-@media (min-width: 768px) { body { font-size: 17px; } }
-@media (min-width: 1440px) { body { font-size: 18px; } }
-
-h1, h2, h3 { font-family: var(--font-serif); }
-h1 { font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; }
-h2 { font-size: 28px; line-height: 1.15; }
-@media (min-width: 768px) { h1 { font-size: 64px; } h2 { font-size: 40px; } }
-@media (min-width: 1440px) { h1 { font-size: 96px; } h2 { font-size: 56px; } }
-
-.section-pad { padding-block: 96px; }
-@media (min-width: 768px) { .section-pad { padding-block: 128px; } }
-@media (min-width: 1440px) { .section-pad { padding-block: 160px; } }
-
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: #000; padding: 8px 16px; z-index: 100; }
+html { background: var(--color-bg); color-scheme: dark; scroll-behavior: smooth; }
+body {
+  background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans);
+  font-size: var(--text-body); line-height: 1.7; overflow-x: clip; -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-primary); color: var(--color-primary-fg); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+.skip-link { position: absolute; left: -999px; top: 0; z-index: 100; background: var(--color-ivory); color: var(--color-ivory-fg); padding: 8px 16px; }
 .skip-link:focus { left: 8px; top: 8px; }
 
-/* Motion initial states are applied by JS only (data-motion-ready) so no-JS and reduced-motion users see content. */
-[data-motion-ready] [data-m="blur-in"] { opacity: 0; filter: blur(12px); transform: translateY(16px); }
+.caption { font-family: var(--font-mono); font-size: var(--text-caption); letter-spacing: var(--tracking-caption); text-transform: uppercase; }
+
+/* Film grain overlay (pure CSS/SVG noise) */
+.grain { position: relative; }
+.grain::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Signature dial ---------- */
+.dial { --h: 305deg; --m: 60deg; --s: 210deg; position: relative; width: 100%; aspect-ratio: 1; container-type: inline-size; border-radius: 50%; border: 1px solid rgb(201 138 90 / .35); }
+.dial-face { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 42%, #1b2546, #0d1326 70%); box-shadow: inset 0 0 120px rgb(0 0 0 / .6), 0 80px 140px -70px rgb(0 0 0 / .9); }
+.dial-face::before { content: ""; position: absolute; inset: 3%; border-radius: 50%; border: 1px solid rgb(239 233 220 / .08); }
+.dial-ticks {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: repeating-conic-gradient(from -.35deg, rgb(239 233 220 / .6) 0 .7deg, transparent .7deg 6deg),
+              repeating-conic-gradient(from -.8deg, #c98a5a 0 1.6deg, transparent 1.6deg 30deg);
+  -webkit-mask: radial-gradient(circle, transparent 61%, #000 61.3%, #000 66%, transparent 66.3%);
+  mask: radial-gradient(circle, transparent 61%, #000 61.3%, #000 66%, transparent 66.3%);
+}
+.dial-ring { position: absolute; inset: 0; }
+.dial-num { position: absolute; font-family: var(--font-display); font-style: italic; font-size: 7.4cqw; line-height: 1; color: rgb(239 233 220 / .88); }
+.dial-num.n12 { left: 50%; top: 9%; transform: translateX(-50%); }
+.dial-num.n6 { left: 50%; bottom: 9%; transform: translateX(-50%); }
+.dial-num.n3 { right: 9%; top: 50%; transform: translateY(-50%); }
+.dial-num.n9 { left: 9%; top: 50%; transform: translateY(-50%); }
+.dial-brand { position: absolute; left: 50%; top: 30%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 1.9cqw; letter-spacing: .3em; color: rgb(239 233 220 / .5); white-space: nowrap; }
+.dial-sub { position: absolute; left: 50%; bottom: 29%; transform: translateX(-50%); font-family: var(--font-display); font-style: italic; font-size: 3.2cqw; color: var(--color-primary); }
+.dial-hand { position: absolute; left: 50%; bottom: 50%; transform-origin: 50% 100%; border-radius: 99px; transform: rotate(var(--a)); animation: dial-sweep var(--t) linear infinite; }
+.dial-hour { --a: var(--h); --t: 43200s; width: 1.1cqw; height: 25%; margin-left: -.55cqw; background: linear-gradient(#efe9dc, #c98a5a); box-shadow: 0 0 2cqw rgb(0 0 0 / .5); }
+.dial-min { --a: var(--m); --t: 3600s; width: .55cqw; height: 37%; margin-left: -.275cqw; background: linear-gradient(#efe9dc, #c98a5a); box-shadow: 0 0 2cqw rgb(0 0 0 / .5); }
+.dial-sec { --a: var(--s); --t: 60s; width: 1px; height: 43%; background: var(--color-primary); }
+.dial-pin { position: absolute; left: 50%; top: 50%; width: 2.4cqw; height: 2.4cqw; margin: -1.2cqw; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 0 .7cqw var(--color-bg), 0 0 0 .85cqw rgb(201 138 90 / .6); }
+@keyframes dial-sweep { from { transform: rotate(var(--a)); } to { transform: rotate(calc(var(--a) + 360deg)); } }
+
+.spin-slow { transform-box: fill-box; transform-origin: center; animation: spin 40s linear infinite; }
+.spin-slow.rev { animation-direction: reverse; animation-duration: 24s; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .dial-hand, .spin-slow { animation: none; }
+}
+
+/* Motion initial states only after JS opts in (no-JS / reduced-motion users see everything). */
+[data-motion-ready] [data-m="blur-in"] { opacity: 0; filter: blur(12px); transform: translateY(20px); }
 [data-motion-ready] [data-m="reveal"] { clip-path: inset(0 0 100% 0); }

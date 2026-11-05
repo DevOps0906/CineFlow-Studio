@@ -1,4 +1,16 @@
-﻿# QA Report — STRATA Atelier (T04 v0.1)
+# QA Report — STRATA Atelier (T04 v0.1)
+
+## v0.2 재검수 (B안 디자인 재구현, 2026-11-06)
+| 항목 | 결과 |
+|---|---|
+| 390/768/1440 콘솔 에러·4xx 없음, 가로 넘침 없음 | Pass |
+| h1 1개, alt, 메타, CTA(mailto) 포커스 가능 | Pass |
+| GLB ≤ 5MB 렌더, 차단 시 포스터 폴백, reduced motion 시 3D 미로드 | Pass |
+| M04/M08 단계 0→1→2와 모델 진행도 증가, 모바일 정적 모델 | Pass |
+| 시그니처 시간 슬라이더: 값·키보드로 빛 변화(--glow), aria-valuetext 갱신 | Pass |
+| reduced motion: 인트로 빛 이동 없음(16:40 고정) | Pass |
+- 시각 QA: 스크린샷 2회 반복 (주석·빛줄기 겹침, 모바일 카피·건물 겹침, 모델 재질 톤 수정)
+- 남은 한계: 3D 모델은 박스 매싱 수준, Lighthouse·번들 미측정, 리뷰어/QA 승인자 미지정
 
 - 일시: 2026-11-06 / 도구: Playwright (Chromium) / 대상: `next build` + `next start`
 - 증빙: `site/qa-evidence/*.png` (git 제외, `npx playwright test`로 재생성)

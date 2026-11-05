@@ -1,4 +1,4 @@
-﻿# STRATA Atelier — spec.md (v0.1, 승인됨)
+# STRATA Atelier — spec.md (v0.1, 승인됨)
 
 ## 0. Brief
 - 타깃: 주거·상업 신축/리모델링을 검토하는 건축주 / 분위기: 구조적·고요한·입체적
@@ -17,13 +17,10 @@ Next.js App Router / TypeScript / Tailwind / GSAP / three + @react-three/fiber (
 | tests/e2e/* | QA | Playwright |
 
 ## 2. Design Tokens
-- 폰트: 제목 Cormorant Garamond(OFL), 본문 Inter(OFL)
-- 크기(모바일/태블릿/데스크톱): H1 40/64/92px, H2 28/40/54px, 본문 16/17/18px / 자간 H1 -0.02em / 행간 H1 1.05, 본문 1.6
-- 색상: bg #e9e6e0, surface #f5f3ef, ink #1a1917, muted #4a4741 (muted/bg ≥ 7:1), accent #6b4423 (accent/bg ≥ 7:1), dark #1f1e1b
-- 간격 8px 단위, 섹션 세로 패딩 96/128/160px
-- 모션 규칙: transform/opacity 위주, easing power3.out
+v0.2: **4B Light Study** — 정답 소스 `design/t04/tokens.css` (대비 검사 통과, 미리보기 `design/t04/preview.html`, 히어로 시안 `design/moodboard.html`). 사이트 `site/app/globals.css`는 이 토큰의 사본. 폰트는 OFL(next/font + pretendard 패키지 self-host).
 
 ## 3. Section Blueprint
+v0.2 섹션 구성: Hero(시간 슬라이더 시그니처) → Proof → Principles(Features) → Process(Showcase, M04+M08) → Works → Contact(CTA) → Footer. 아래 표는 v0.1 기록.
 | 섹션 | 목표 | 메시지 | 미디어 | 모션 | 반응형 |
 |---|---|---|---|---|---|
 | Hero | 첫인상 | 구조가 공간의 언어가 됩니다 | SVG 포스터(도면풍) | M01, M03 | 1열 |
@@ -63,4 +60,4 @@ PRD §9 적용: GLB ≤ 5MB, 포스터 ≤ 150KB, 3D 청크는 초기 JS에서 �
 7. 모바일: 핀 없음, 3단계 표시
 
 ## 8. Approval
-디자인 승인자: 프로젝트 오너 (2026-11-06 승인) / 코드 리뷰어: 미정 / QA 승인자: 미정 / 버전: v0.1 (승인됨). 앱 위치: projects/sample-t04-architecture/site
+디자인 승인자: 프로젝트 오너 (2026-11-06 승인) / 코드 리뷰어: 미정 / QA 승인자: 미정 / 버전: v0.2 (승인됨, B안 디자인 승인 2026-11-06). 앱 위치: projects/sample-t04-architecture/site

@@ -1,15 +1,15 @@
 ﻿import MotionRoot from "@/components/MotionRoot";
-import { CTA, Features, Footer, Hero, Proof, Showcase } from "@/components/sections/Sections";
+import { Demo, Footer, Hero, HowItWorks, Logos, Product } from "@/components/sections/Sections";
 
 export default function Home() {
   return (
     <MotionRoot>
       <Hero />
       <main id="main">
-        <Proof />
-        <Features />
-        <Showcase />
-        <CTA />
+        <Logos />
+        <Product />
+        <HowItWorks />
+        <Demo />
       </main>
       <Footer />
     </MotionRoot>

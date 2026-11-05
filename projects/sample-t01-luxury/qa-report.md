@@ -1,4 +1,15 @@
-﻿# QA Report — AURUM Noir (T01 v0.1)
+# QA Report — AURUM Noir (T01 v0.1)
+
+## v0.2 재검수 (B안 디자인 재구현, 2026-11-06)
+| 항목 | 결과 |
+|---|---|
+| 390/768/1440 콘솔 에러·4xx 없음, 가로 넘침 없음 | Pass |
+| h1 1개, alt, title/description, CTA(mailto) 포커스 가능 | Pass |
+| 시그니처 다이얼: 현재 시각 반영, 바늘 회전, 스크롤 시 숫자 링 회전 | Pass |
+| reduced motion: 모션 초기화 안 함, 바늘 정지, 콘텐츠 가시 | Pass |
+| M01 Blur-in 동작 | Pass |
+- 시각 QA: 스크린샷 2회 반복 (필름 포스터 상단 XII 잘림, 모바일 스펙 라벨 줄바꿈 수정)
+- 남은 한계: Lighthouse 미측정, 사진·영상은 AI 프롬프트 패키지(design/AI_IMAGE_PROMPTS.md) 대기, 리뷰어/QA 승인자 미지정
 
 - 일시: 2026-11-06 / 도구: Playwright (Chromium) / 대상: `next build` + `next start`
 - 증빙: `site/qa-evidence/{mobile,tablet,desktop}.png` (git 제외, `npx playwright test`로 재생성)

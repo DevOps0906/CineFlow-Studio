@@ -1,4 +1,4 @@
-﻿// Generates public/models/building.glb (self-made, no external assets). Run: node scripts/make-model.mjs
+// Generates public/models/building.glb (self-made, no external assets). Run: node scripts/make-model.mjs
 import fs from "node:fs";
 
 // name, material (0 concrete / 1 dark), size [w,h,d], base-center position [x,y,z]
@@ -48,8 +48,8 @@ const json = {
   scene: 0, scenes: [{ nodes: nodes.map((_, i) => i) }], nodes, meshes, accessors, bufferViews,
   buffers: [{ byteLength: bin.length }],
   materials: [
-    { name: "concrete", pbrMetallicRoughness: { baseColorFactor: [0.82, 0.8, 0.75, 1], metallicFactor: 0, roughnessFactor: 0.9 } },
-    { name: "dark",     pbrMetallicRoughness: { baseColorFactor: [0.16, 0.16, 0.15, 1], metallicFactor: 0.1, roughnessFactor: 0.5 } },
+    { name: "concrete", pbrMetallicRoughness: { baseColorFactor: [0.5, 0.48, 0.45, 1], metallicFactor: 0, roughnessFactor: 0.9 } },
+    { name: "dark",     pbrMetallicRoughness: { baseColorFactor: [0.11, 0.11, 0.1, 1], metallicFactor: 0.1, roughnessFactor: 0.5 } },
   ],
 };
 const pad = (b, ch) => Buffer.concat([b, Buffer.alloc((4 - (b.length % 4)) % 4, ch)]);

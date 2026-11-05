@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 900">
+  <defs>
+    <radialGradient id="g" cx="68%" cy="58%" r="72%"><stop offset="0" stop-color="#26335c"/><stop offset=".55" stop-color="#0f1630"/><stop offset="1" stop-color="#0b1020"/></radialGradient>
+    <linearGradient id="h" x1="0" x2="1"><stop offset="0" stop-color="#efe9dc"/><stop offset="1" stop-color="#c98a5a"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#c98a5a" stop-opacity=".25"/><stop offset="1" stop-color="#c98a5a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="2100" height="900" fill="url(#g)"/>
+  <circle cx="1480" cy="560" r="700" fill="url(#glow)"/>
+  <g transform="translate(1480 560)">
+    <circle r="720" fill="none" stroke="#c98a5a" stroke-opacity=".35" stroke-width="2"/>
+    <circle r="690" fill="none" stroke="#efe9dc" stroke-opacity=".08" stroke-width="2"/>
+    <circle r="640" fill="none" stroke="#efe9dc" stroke-opacity=".5" stroke-width="34" stroke-dasharray="3 64"/>
+    <circle r="640" fill="none" stroke="#c98a5a" stroke-width="44" stroke-dasharray="8 327"/>
+    <circle r="560" fill="#0d1326" fill-opacity=".5"/>
+    <text x="-460" y="40" fill="#efe9dc" fill-opacity=".85" font-family="Georgia, serif" font-style="italic" font-size="120" text-anchor="middle">IX</text>
+    <line x1="0" y1="0" x2="-430" y2="-300" stroke="url(#h)" stroke-width="20" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="130" y2="-580" stroke="url(#h)" stroke-width="11" stroke-linecap="round"/>
+    <line x1="0" y1="80" x2="-260" y2="-560" stroke="#c98a5a" stroke-width="3"/>
+    <circle r="28" fill="#c98a5a"/><circle r="44" fill="none" stroke="#0b1020" stroke-width="12"/>
+  </g>
+</svg>

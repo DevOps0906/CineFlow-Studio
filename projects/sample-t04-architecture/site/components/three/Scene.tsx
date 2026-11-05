@@ -52,9 +52,11 @@ export default function Scene({ staticMode, onReady, onFail }: { staticMode: boo
   return (
     <Canvas frameloop={staticMode ? "demand" : "always"} camera={{ position: [9.5, 6.5, 12.5], fov: 35 }} dpr={[1, 1.5]}
       gl={{ antialias: true }} onCreated={onReady} aria-hidden="true">
-      <color attach="background" args={["#e9e6e0"]} />
-      <ambientLight intensity={1.1} />
-      <directionalLight position={[6, 9, 4]} intensity={2.2} />
+      <color attach="background" args={["#1b1a18"]} />
+      <ambientLight intensity={0.45} />
+      <hemisphereLight args={["#f2eee6", "#111111", 0.35]} />
+      <directionalLight position={[-7, 8, 6]} intensity={3} color="#f2b872" />
+      <directionalLight position={[6, 3, -4]} intensity={0.6} color="#9fb4d8" />
       <Building staticMode={staticMode} gltf={gltf} />
     </Canvas>
   );
