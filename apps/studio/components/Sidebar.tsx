@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { TEMPLATES } from "@/lib/data";
+import type { Status } from "@/lib/data";
+
+export interface NavItem { id: string; slug: string; name: string; status: Status }
 
 const DOT = { built: "bg-emerald-400", "spec-draft": "bg-amber-400", planned: "bg-zinc-600" } as const;
 
-export default function Sidebar() {
+export default function Sidebar({ items }: { items: NavItem[] }) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(false), [path]);
@@ -33,7 +35,7 @@ export default function Sidebar() {
         {item("/", "대시보드")}
         <p className="mt-6 mb-2 px-3 text-xs tracking-widest text-zinc-500 uppercase">카테고리</p>
         <div className="space-y-0.5">
-          {TEMPLATES.map((t) => item(`/category/${t.slug}`, `${t.id} ${t.name}`, <span aria-hidden className={`h-2 w-2 shrink-0 rounded-full ${DOT[t.status]}`} />))}
+          {items.map((t) => item(`/category/${t.slug}`, `${t.id} ${t.name}`, <span aria-hidden className={`h-2 w-2 shrink-0 rounded-full ${DOT[t.status]}`} />))}
         </div>
         <p className="mt-6 px-3 text-xs text-zinc-500">
           <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-400" />구현{" "}

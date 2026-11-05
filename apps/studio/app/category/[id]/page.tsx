@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { MOTIONS, SECTIONS, TEMPLATES } from "@/lib/data";
+import { SECTIONS, TEMPLATES } from "@/lib/data";
+import { getRegistry } from "@/lib/registry";
 import { Card, StatusBadge } from "@/components/ui";
 
 export function generateStaticParams() {
@@ -18,11 +19,12 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: P) {
   const { id } = await params;
-  const i = TEMPLATES.findIndex((x) => x.slug === id);
+  const { templates, motions: MOTIONS } = getRegistry();
+  const i = templates.findIndex((x) => x.slug === id);
   if (i < 0) notFound();
-  const t = TEMPLATES[i];
-  const prev = TEMPLATES[i - 1];
-  const next = TEMPLATES[i + 1];
+  const t = templates[i];
+  const prev = templates[i - 1];
+  const next = templates[i + 1];
   const motions = t.motions.map((m) => MOTIONS.find((x) => x.id === m)!);
   const ready = motions.filter((m) => m.implemented).length;
 

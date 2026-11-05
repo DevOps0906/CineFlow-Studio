@@ -1,23 +1,25 @@
-﻿import Link from "next/link";
-import { GATES, MOTIONS, QA_LATEST, SECTIONS, TEMPLATES } from "@/lib/data";
+import Link from "next/link";
+import { SECTIONS } from "@/lib/data";
+import { getRegistry } from "@/lib/registry";
 import { Bar, Card, StatusBadge } from "@/components/ui";
 
 export default function Dashboard() {
+  const { templates: TEMPLATES, motions: MOTIONS, gates: GATES, qa: QA_LATEST, projectCount } = getRegistry();
   const built = TEMPLATES.filter((t) => t.status === "built").length;
   const drafts = TEMPLATES.filter((t) => t.status === "spec-draft").length;
   const mvp = MOTIONS.filter((m) => m.mvp);
   const impl = mvp.filter((m) => m.implemented).length;
   const kpis = [
     ["템플릿", `${TEMPLATES.length}종`, "카탈로그 전체"],
-    ["구현됨", `${built}/${TEMPLATES.length}`, "P0 3종 중 T01"],
-    ["Spec 초안", `${drafts}종`, "T03, T04 승인 대기"],
+    ["구현됨", `${built}/${TEMPLATES.length}`, `P0 ${TEMPLATES.filter((t) => t.priority === "P0" && t.status === "built").length}/3 구현`],
+    ["Spec 초안", `${drafts}종`, "승인 대기"],
     ["MVP 모션", `${impl}/${mvp.length}`, "구현 완료"],
   ];
   return (
     <div className="mx-auto max-w-6xl space-y-6">
       <header>
         <h1 className="text-2xl font-semibold">대시보드</h1>
-        <p className="mt-1 text-sm text-zinc-400">PRD 기준 MVP 진행 현황 (정적 데이터, 레지스트리 연동 전)</p>
+        <p className="mt-1 text-sm text-zinc-400">PRD 기준 MVP 진행 현황 · projects/ 폴더 {projectCount}개에서 빌드 시 자동 집계</p>
       </header>
 
       <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -47,7 +49,7 @@ export default function Dashboard() {
         </div>
 
         <div className="space-y-6">
-          <Card title="승인 게이트 (3개 프로젝트)">
+          <Card title={`승인 게이트 (${projectCount}개 프로젝트)`}>
             <ul className="space-y-4">
               {GATES.map((g) => (
                 <li key={g.name}><div className="mb-1 flex justify-between text-sm"><span>{g.name}</span><span className="text-zinc-400">{g.done}/{g.total}</span></div><Bar value={g.done} total={g.total} /></li>
@@ -55,10 +57,12 @@ export default function Dashboard() {
             </ul>
           </Card>
           <Card title="최근 QA">
-            <p className="font-medium">{QA_LATEST.project}</p>
-            <p className="mt-1 text-sm text-zinc-400">{QA_LATEST.date} · 테스트 {QA_LATEST.passed}/{QA_LATEST.total} 통과</p>
-            <p className="mt-2 text-sm text-amber-300">{QA_LATEST.verdict}</p>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-zinc-400">{QA_LATEST.gaps.map((g) => <li key={g}>{g}</li>)}</ul>
+            {QA_LATEST ? (<>
+              <p className="font-medium">{QA_LATEST.project}</p>
+              <p className="mt-1 text-sm text-zinc-400">{QA_LATEST.date} · 테스트 {QA_LATEST.passed}/{QA_LATEST.total} 통과</p>
+              <p className="mt-2 text-sm text-amber-300">{QA_LATEST.verdict}</p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-zinc-400">{QA_LATEST.gaps.map((g) => <li key={g}>{g}</li>)}</ul>
+            </>) : <p className="text-sm text-zinc-500">QA 리포트 없음</p>}
           </Card>
         </div>
       </div>
