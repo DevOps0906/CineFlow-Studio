@@ -1,0 +1,45 @@
+/* T01 AURUM Noir — 1B Midnight Ivory. Single source of truth (Tailwind CSS v4). */
+@import "tailwindcss";
+
+@theme {
+  /* Color: deep navy + ivory, copper accent */
+  --color-bg: #0b1020;
+  --color-surface: #121a30;
+  --color-text: #efe9dc;
+  --color-text-muted: #a9a79e;
+  --color-border: #253050;
+  --color-input: #6f7894;
+  --color-primary: #c98a5a;       /* copper */
+  --color-primary-fg: #0b1020;
+  --color-ivory: #efe9dc;
+  --color-ivory-fg: #0b1020;
+
+  /* Type: italic serif display + mono numerals + Korean body */
+  --font-display: "Instrument Serif", "Cormorant Garamond", serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Size — mobile base (tablet/desktop below) */
+  --text-display: 56px;
+  --text-h1: 40px;
+  --text-h2: 28px;
+  --text-body: 16px;
+  --text-caption: 12px;
+  --tracking-display: -0.03em;
+  --tracking-caption: 0.24em;
+
+  --spacing: 4px;
+  --radius-control: 999px;
+  --radius-card: 2px;
+  --shadow-card: 0 30px 80px -40px rgb(0 0 0 / 0.8);
+
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-reveal: 1100ms;
+}
+
+@media (width >= 768px) {
+  :root { --text-display: 104px; --text-h1: 64px; --text-h2: 40px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  :root { --text-display: 168px; --text-h1: 88px; --text-h2: 52px; --text-body: 18px; --text-caption: 13px; }
+}

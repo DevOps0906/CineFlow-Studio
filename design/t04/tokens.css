@@ -1,0 +1,44 @@
+/* T04 STRATA Atelier — 4B Light Study. Single source of truth (Tailwind CSS v4). */
+@import "tailwindcss";
+
+@theme {
+  /* Color: shadow black, warm light, stone */
+  --color-bg: #111111;
+  --color-surface: #1b1a18;
+  --color-text: #f2eee6;
+  --color-text-muted: #a8a196;
+  --color-border: #2e2c28;
+  --color-input: #77716a;
+  --color-primary: #f2b872;       /* warm daylight */
+  --color-primary-fg: #111111;
+  --color-stone: #d9d3c7;
+  --color-stone-fg: #111111;
+
+  /* Type: large tight grotesk, mono annotations, Korean body */
+  --font-display: "Inter Tight", "Pretendard Variable", sans-serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-display: 52px;
+  --text-h1: 38px;
+  --text-h2: 26px;
+  --text-body: 16px;
+  --text-caption: 11px;
+  --tracking-display: -0.05em;
+  --tracking-caption: 0.2em;
+
+  --spacing: 4px;
+  --radius-control: 0px;
+  --radius-card: 0px;
+  --shadow-card: 0 40px 100px -50px rgb(242 184 114 / 0.25);
+
+  --ease-cinematic: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-reveal: 1200ms;
+}
+
+@media (width >= 768px) {
+  :root { --text-display: 96px; --text-h1: 60px; --text-h2: 36px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  :root { --text-display: 152px; --text-h1: 80px; --text-h2: 48px; --text-body: 18px; --text-caption: 12px; }
+}

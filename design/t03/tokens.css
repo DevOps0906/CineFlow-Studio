@@ -1,0 +1,44 @@
+/* T03 NOVA Flow — 3B Dark Terminal. Single source of truth (Tailwind CSS v4). */
+@import "tailwindcss";
+
+@theme {
+  /* Color: near-black, signal lime, cool grays */
+  --color-bg: #0a0b10;
+  --color-surface: #12141c;
+  --color-text: #e8eaf0;
+  --color-text-muted: #9097a8;
+  --color-border: #22263a;
+  --color-input: #5d6478;
+  --color-primary: #c6f432;       /* signal lime */
+  --color-primary-fg: #0a0b10;
+  --color-signal: #7cf1ff;        /* secondary data accent */
+  --color-signal-fg: #0a0b10;
+
+  /* Type: mono for system voice, grotesk for headlines, Korean body */
+  --font-display: "Space Grotesk", "Pretendard Variable", sans-serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-display: 48px;
+  --text-h1: 36px;
+  --text-h2: 26px;
+  --text-body: 15px;
+  --text-caption: 12px;
+  --tracking-display: -0.04em;
+  --tracking-caption: 0.08em;
+
+  --spacing: 4px;
+  --radius-control: 6px;
+  --radius-card: 10px;
+  --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.06), 0 20px 60px -30px rgb(198 244 50 / 0.25);
+
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-reveal: 700ms;
+}
+
+@media (width >= 768px) {
+  :root { --text-display: 80px; --text-h1: 52px; --text-h2: 34px; --text-body: 16px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  :root { --text-display: 120px; --text-h1: 68px; --text-h2: 44px; --text-body: 17px; --text-caption: 13px; }
+}
