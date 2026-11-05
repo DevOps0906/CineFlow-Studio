@@ -1,0 +1,12 @@
+/* T05 template-specific styles: dusk sky, lit facade, interactive floor plan highlight. */
+.theme-t05 .dusk { background: linear-gradient(180deg, #0c1512 0%, #13231d 38%, #2b2a1f 72%, #5a4527 100%); }
+.theme-t05 .win { fill: #1e2c26; }
+.theme-t05 .win.lit { fill: #e9c88a; filter: drop-shadow(0 0 6px rgb(233 200 138 / .6)); }
+
+.theme-t05 .plan [data-room] { fill: transparent; stroke: rgb(236 230 216 / .35); stroke-width: 1.5; transition: fill .5s, stroke .5s; }
+.theme-t05 .plan .room-on,
+.theme-t05 [data-active="0"] .plan-live [data-room="0"],
+.theme-t05 [data-active="1"] .plan-live [data-room="1"],
+.theme-t05 [data-active="2"] .plan-live [data-room="2"],
+.theme-t05 [data-active="3"] .plan-live [data-room="3"] { fill: rgb(201 164 106 / .22); stroke: var(--color-primary); stroke-width: 2.5; }
+.theme-t05 .plan text { fill: var(--color-text-muted); font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; }

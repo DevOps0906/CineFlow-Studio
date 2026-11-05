@@ -51,6 +51,7 @@ export default async function CategoryPage({ params }: P) {
             <div className="flex justify-between"><dt className="text-zinc-400">에셋 라이선스</dt><dd>{t.status === "planned" ? "미착수" : "미확정"}</dd></div>
           </dl>
           {t.demoNote && <p className="mt-3 text-xs text-zinc-400">{t.demoNote}</p>}
+          {t.demoUrl && <a href={t.demoUrl} target="_blank" rel="noreferrer" data-demo className="mt-4 inline-block rounded-md bg-amber-400 px-4 py-2 text-sm font-semibold text-zinc-950 hover:bg-amber-300">데모 열기 ↗</a>}
         </Card>
       </div>
 

@@ -1,0 +1,11 @@
+/* T08 template-specific styles: car rig, scroll-scrub drive (driven by --p from [data-m="scrub"]). */
+.theme-t08 .car { --car: #ff5a1f; }
+.theme-t08 .car .body { fill: var(--car); transition: fill .6s ease; }
+.theme-t08 .car .wheel { transform-box: fill-box; transform-origin: center; }
+.theme-t08 .road { background: repeating-linear-gradient(90deg, rgb(215 218 223 / .5) 0 60px, transparent 60px 140px); height: 2px; }
+
+.theme-t08 .drive .rig { transform: translateX(calc((min(calc(var(--p) * 2.2), 1) - 1) * 70vw)); }
+.theme-t08 .drive .wheel { transform: rotate(calc(var(--p) * 2400deg)); }
+.theme-t08 .drive .streak { transform: translateX(calc(var(--p) * -80%)); opacity: calc(var(--p) * 1.4); }
+.theme-t08 .drive .road { background-position: calc(var(--p) * -2400px) 0; }
+.theme-t08 .drive .glow { opacity: calc(.25 + var(--p) * .75); }

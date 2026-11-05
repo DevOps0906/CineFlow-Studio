@@ -1,0 +1,32 @@
+/* GENERATED from design/t12/tokens.css by scripts/sync-tokens.mjs. Do not edit; change the design token and re-run. */
+.theme-t12 {
+  --color-bg: #0b0b0b;
+  --color-surface: #161616;
+  --color-text: #f5f5f0;
+  --color-text-muted: #a3a39b;
+  --color-border: #2a2a2a;
+  --color-input: #6b6b66;
+  --color-primary: #ff4d2e;
+  --color-primary-fg: #0b0b0b;
+  --color-accent: #b9a6ff;
+  --color-accent-fg: #0b0b0b;
+
+  --font-display: var(--nf-display), "Anton", "Impact", sans-serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), "Space Mono", ui-monospace, monospace;
+
+  --text-display: 76px;
+  --text-h1: 44px;
+  --text-h2: 28px;
+  --text-body: 16px;
+  --text-caption: 11px;
+  --tracking-display: -0.01em;
+  --tracking-caption: 0.18em;
+}
+@media (width >= 768px) {
+  .theme-t12 { --text-display: 150px; --text-h1: 72px; --text-h2: 40px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  .theme-t12 { --text-display: 232px; --text-h1: 104px; --text-h2: 56px; --text-body: 18px; --text-caption: 12px; }
+}
+html:has(.theme-t12) { background-color: #0b0b0b; color-scheme: dark; }

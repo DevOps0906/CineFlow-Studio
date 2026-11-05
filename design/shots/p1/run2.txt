@@ -1,0 +1,48 @@
+﻿
+Running 44 tests using 1 worker
+
+[1/44] tests\qa.spec.ts:14:11 ??t02 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[2/44] tests\qa.spec.ts:14:11 ??t02 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[3/44] tests\qa.spec.ts:14:11 ??t02 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[4/44] tests\qa.spec.ts:37:9 ??t02 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[5/44] tests\qa.spec.ts:14:11 ??t05 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[6/44] tests\qa.spec.ts:14:11 ??t05 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[7/44] tests\qa.spec.ts:14:11 ??t05 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[8/44] tests\qa.spec.ts:37:9 ??t05 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[9/44] tests\qa.spec.ts:14:11 ??t06 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[10/44] tests\qa.spec.ts:14:11 ??t06 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[11/44] tests\qa.spec.ts:14:11 ??t06 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[12/44] tests\qa.spec.ts:37:9 ??t06 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[13/44] tests\qa.spec.ts:14:11 ??t07 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[14/44] tests\qa.spec.ts:14:11 ??t07 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[15/44] tests\qa.spec.ts:14:11 ??t07 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[16/44] tests\qa.spec.ts:37:9 ??t07 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[17/44] tests\qa.spec.ts:14:11 ??t08 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[18/44] tests\qa.spec.ts:14:11 ??t08 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[19/44] tests\qa.spec.ts:14:11 ??t08 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[20/44] tests\qa.spec.ts:37:9 ??t08 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[21/44] tests\qa.spec.ts:14:11 ??t09 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[22/44] tests\qa.spec.ts:14:11 ??t09 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[23/44] tests\qa.spec.ts:14:11 ??t09 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[24/44] tests\qa.spec.ts:37:9 ??t09 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[25/44] tests\qa.spec.ts:14:11 ??t10 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[26/44] tests\qa.spec.ts:14:11 ??t10 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[27/44] tests\qa.spec.ts:14:11 ??t10 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[28/44] tests\qa.spec.ts:37:9 ??t10 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[29/44] tests\qa.spec.ts:14:11 ??t11 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[30/44] tests\qa.spec.ts:14:11 ??t11 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[31/44] tests\qa.spec.ts:14:11 ??t11 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[32/44] tests\qa.spec.ts:37:9 ??t11 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[33/44] tests\qa.spec.ts:14:11 ??t12 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[34/44] tests\qa.spec.ts:14:11 ??t12 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[35/44] tests\qa.spec.ts:14:11 ??t12 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[36/44] tests\qa.spec.ts:37:9 ??t12 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[37/44] tests\qa.spec.ts:75:7 ??signatures ??t05 floor-plan tour: pinned steps highlight rooms
+[38/44] tests\qa.spec.ts:83:7 ??signatures ??t06 relic: 3D renders and reveals; reduced motion shows poster
+[39/44] tests\qa.spec.ts:95:7 ??signatures ??t07 liquid glass: backdrop blur and pointer highlight
+[40/44] tests\qa.spec.ts:104:7 ??signatures ??t08 drive scrub: HUD phases + speed advance; configurator recolours
+[41/44] tests\qa.spec.ts:118:7 ??signatures ??t09 index: hovering a project shows its floating preview
+[42/44] tests\qa.spec.ts:124:7 ??signatures ??t10 quiz: three answers produce a track recommendation
+[43/44] tests\qa.spec.ts:133:7 ??signatures ??t11 case tabs (keyboard) and ROI calculator
+[44/44] tests\qa.spec.ts:145:7 ??signatures ??t12 countdown is live and ticking
+  44 passed (3.5m)

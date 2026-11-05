@@ -1,0 +1,32 @@
+/* GENERATED from design/t06/tokens.css by scripts/sync-tokens.mjs. Do not edit; change the design token and re-run. */
+.theme-t06 {
+  --color-bg: #05060a;
+  --color-surface: #0d0f18;
+  --color-text: #eef1ff;
+  --color-text-muted: #8d93b0;
+  --color-border: #1c2033;
+  --color-input: #5a6080;
+  --color-primary: #ff3d8b;
+  --color-primary-fg: #05060a;
+  --color-accent: #3df2ff;
+  --color-accent-fg: #05060a;
+
+  --font-display: var(--nf-display), "Chakra Petch", sans-serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), "Share Tech Mono", ui-monospace, monospace;
+
+  --text-display: 54px;
+  --text-h1: 36px;
+  --text-h2: 24px;
+  --text-body: 16px;
+  --text-caption: 12px;
+  --tracking-display: -0.02em;
+  --tracking-caption: 0.16em;
+}
+@media (width >= 768px) {
+  .theme-t06 { --text-display: 104px; --text-h1: 56px; --text-h2: 34px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  .theme-t06 { --text-display: 160px; --text-h1: 76px; --text-h2: 44px; --text-body: 18px; --text-caption: 13px; }
+}
+html:has(.theme-t06) { background-color: #05060a; color-scheme: dark; }

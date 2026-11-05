@@ -53,16 +53,19 @@ test("unknown category shows not-found page", async ({ page }) => {
   await expect(page.getByText("This page could not be found.")).toBeVisible();
 });
 
-test("registry reflects project files (T01/T03/T04 built, 8/8 motions)", async ({ page }) => {
+test("registry reflects project files (all 12 built, 8/8 motions, demo links)", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
-  const row = (id: string) => page.locator(`main a[href="/category/${id}"]`);
-  for (const id of ["t01", "t03", "t04"]) await expect(row(id)).toContainText("구현됨");
-  await expect(row("t02")).toContainText("계획");
+  for (let n = 1; n <= 12; n++) {
+    const id = `t${String(n).padStart(2, "0")}`;
+    await expect(page.locator(`main a[href="/category/${id}"]`)).toContainText("구현됨");
+  }
+  await expect(page.getByText("12/12", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("8/8", { exact: true })).toBeVisible();
   await expect(page.getByText("P0 3/3 구현")).toBeVisible();
-  await expect(page.getByText(/테스트 \d+\/\d+ 통과/)).toBeVisible();
-  await page.goto("/category/t04");
-  await expect(page.getByText("projects/sample-t04-architecture/spec.md")).toBeVisible();
-  await expect(page.getByText(/QA \d+\/\d+ 통과/)).toBeVisible();
+  await page.goto("/category/t06");
+  await expect(page.getByText("apps/showcase/app/t06", { exact: false }).first()).toBeVisible();
+  await expect(page.locator("[data-demo]")).toHaveAttribute("href", "http://localhost:3305/t06");
+  await page.goto("/category/t01");
+  await expect(page.locator("[data-demo]")).toHaveAttribute("href", "http://localhost:3301");
 });

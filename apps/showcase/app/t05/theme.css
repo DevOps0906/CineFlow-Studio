@@ -1,0 +1,32 @@
+/* GENERATED from design/t05/tokens.css by scripts/sync-tokens.mjs. Do not edit; change the design token and re-run. */
+.theme-t05 {
+  --color-bg: #0f1a16;
+  --color-surface: #16241f;
+  --color-text: #ece6d8;
+  --color-text-muted: #a9b0a3;
+  --color-border: #26372f;
+  --color-input: #6f7d73;
+  --color-primary: #c9a46a;
+  --color-primary-fg: #0f1a16;
+  --color-accent: #ece6d8;
+  --color-accent-fg: #0f1a16;
+
+  --font-display: var(--nf-display), "Cormorant Garamond", serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), "DM Mono", ui-monospace, monospace;
+
+  --text-display: 56px;
+  --text-h1: 38px;
+  --text-h2: 26px;
+  --text-body: 16px;
+  --text-caption: 11px;
+  --tracking-display: -0.02em;
+  --tracking-caption: 0.22em;
+}
+@media (width >= 768px) {
+  .theme-t05 { --text-display: 104px; --text-h1: 60px; --text-h2: 36px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  .theme-t05 { --text-display: 152px; --text-h1: 84px; --text-h2: 48px; --text-body: 18px; --text-caption: 12px; }
+}
+html:has(.theme-t05) { background-color: #0f1a16; color-scheme: dark; }

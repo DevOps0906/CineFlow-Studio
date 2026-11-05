@@ -7,6 +7,7 @@
 - 템플릿: T01 luxury-product v0.1
 
 ## 1. Stack & Files
+데모: http://localhost:3301
 Next.js App Router / TypeScript / Tailwind / GSAP (R3F 미사용)
 | 경로 | 소유자 | 내용 |
 |---|---|---|

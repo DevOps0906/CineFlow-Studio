@@ -1,0 +1,32 @@
+/* GENERATED from design/t02/tokens.css by scripts/sync-tokens.mjs. Do not edit; change the design token and re-run. */
+.theme-t02 {
+  --color-bg: #f2eee6;
+  --color-surface: #e8e2d6;
+  --color-text: #121212;
+  --color-text-muted: #57524a;
+  --color-border: #d6cfc1;
+  --color-input: #8a8478;
+  --color-primary: #b3261e;
+  --color-primary-fg: #ffffff;
+  --color-accent: #121212;
+  --color-accent-fg: #f2eee6;
+
+  --font-display: var(--nf-display), "Bodoni Moda", "Didot", serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), "DM Mono", ui-monospace, monospace;
+
+  --text-display: 60px;
+  --text-h1: 40px;
+  --text-h2: 26px;
+  --text-body: 16px;
+  --text-caption: 11px;
+  --tracking-display: -0.04em;
+  --tracking-caption: 0.18em;
+}
+@media (width >= 768px) {
+  .theme-t02 { --text-display: 128px; --text-h1: 64px; --text-h2: 36px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  .theme-t02 { --text-display: 208px; --text-h1: 96px; --text-h2: 48px; --text-body: 18px; --text-caption: 12px; }
+}
+html:has(.theme-t02) { background-color: #f2eee6; color-scheme: light; }

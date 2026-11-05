@@ -1,0 +1,32 @@
+/* GENERATED from design/t07/tokens.css by scripts/sync-tokens.mjs. Do not edit; change the design token and re-run. */
+.theme-t07 {
+  --color-bg: #f4eeea;
+  --color-surface: #fbf8f6;
+  --color-text: #2a2024;
+  --color-text-muted: #6b5a60;
+  --color-border: #e6d9d3;
+  --color-input: #9a8a90;
+  --color-primary: #8e4f47;
+  --color-primary-fg: #ffffff;
+  --color-accent: #2a2024;
+  --color-accent-fg: #f4eeea;
+
+  --font-display: var(--nf-display), "Italiana", serif;
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), "DM Mono", ui-monospace, monospace;
+
+  --text-display: 64px;
+  --text-h1: 40px;
+  --text-h2: 26px;
+  --text-body: 16px;
+  --text-caption: 11px;
+  --tracking-display: -0.01em;
+  --tracking-caption: 0.24em;
+}
+@media (width >= 768px) {
+  .theme-t07 { --text-display: 120px; --text-h1: 64px; --text-h2: 36px; --text-body: 17px; --text-caption: 12px; }
+}
+@media (width >= 1200px) {
+  .theme-t07 { --text-display: 184px; --text-h1: 88px; --text-h2: 48px; --text-body: 18px; --text-caption: 12px; }
+}
+html:has(.theme-t07) { background-color: #f4eeea; color-scheme: light; }

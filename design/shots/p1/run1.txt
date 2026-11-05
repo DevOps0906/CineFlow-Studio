@@ -1,0 +1,420 @@
+﻿
+Running 44 tests using 1 worker
+
+[1/44] tests\qa.spec.ts:14:11 ??t02 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[2/44] tests\qa.spec.ts:14:11 ??t02 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[3/44] tests\qa.spec.ts:14:11 ??t02 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[4/44] tests\qa.spec.ts:37:9 ??t02 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[5/44] tests\qa.spec.ts:14:11 ??t05 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[6/44] tests\qa.spec.ts:14:11 ??t05 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+  1) tests\qa.spec.ts:14:11 ??t05 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ??
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t05-tablet-no-errors-4x-d78aa-ow-headings-fit-screenshots\error-context.md
+
+
+[7/44] tests\qa.spec.ts:14:11 ??t05 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+  2) tests\qa.spec.ts:14:11 ??t05 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ?
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t05-desktop-no-errors-4-6e207-ow-headings-fit-screenshots\error-context.md
+
+
+[8/44] tests\qa.spec.ts:37:9 ??t05 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[9/44] tests\qa.spec.ts:14:11 ??t06 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+  3) tests\qa.spec.ts:14:11 ??t06 ??mobile: no errors/4xx, no overflow, headings fit, screenshots ??
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t06-mobile-no-errors-4x-e3ba0-ow-headings-fit-screenshots\error-context.md
+
+
+[10/44] tests\qa.spec.ts:14:11 ??t06 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+  4) tests\qa.spec.ts:14:11 ??t06 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ??
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t06-tablet-no-errors-4x-bb607-ow-headings-fit-screenshots\error-context.md
+
+
+[11/44] tests\qa.spec.ts:14:11 ??t06 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+  5) tests\qa.spec.ts:14:11 ??t06 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ?
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t06-desktop-no-errors-4-3bc18-ow-headings-fit-screenshots\error-context.md
+
+
+[12/44] tests\qa.spec.ts:37:9 ??t06 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[13/44] tests\qa.spec.ts:14:11 ??t07 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[14/44] tests\qa.spec.ts:14:11 ??t07 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[15/44] tests\qa.spec.ts:14:11 ??t07 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[16/44] tests\qa.spec.ts:37:9 ??t07 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[17/44] tests\qa.spec.ts:14:11 ??t08 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+  6) tests\qa.spec.ts:14:11 ??t08 ??mobile: no errors/4xx, no overflow, headings fit, screenshots ??
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t08-mobile-no-errors-4x-c620a-ow-headings-fit-screenshots\error-context.md
+
+
+[18/44] tests\qa.spec.ts:14:11 ??t08 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+  7) tests\qa.spec.ts:14:11 ??t08 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ??
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t08-tablet-no-errors-4x-0ef7f-ow-headings-fit-screenshots\error-context.md
+
+
+[19/44] tests\qa.spec.ts:14:11 ??t08 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+  8) tests\qa.spec.ts:14:11 ??t08 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ?
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    + ]
+
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+    > 33 |         expect(errors).toEqual([]);
+         |                        ^
+      34 |       });
+      35 |     }
+      36 |
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:33:24
+
+    Error Context: test-results\qa-t08-desktop-no-errors-4-2ae93-ow-headings-fit-screenshots\error-context.md
+
+
+[20/44] tests\qa.spec.ts:37:9 ??t08 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[21/44] tests\qa.spec.ts:14:11 ??t09 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[22/44] tests\qa.spec.ts:14:11 ??t09 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[23/44] tests\qa.spec.ts:14:11 ??t09 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[24/44] tests\qa.spec.ts:37:9 ??t09 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[25/44] tests\qa.spec.ts:14:11 ??t10 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[26/44] tests\qa.spec.ts:14:11 ??t10 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[27/44] tests\qa.spec.ts:14:11 ??t10 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[28/44] tests\qa.spec.ts:37:9 ??t10 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[29/44] tests\qa.spec.ts:14:11 ??t11 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+  9) tests\qa.spec.ts:14:11 ??t11 ??mobile: no errors/4xx, no overflow, headings fit, screenshots ??
+
+    Error: headings overflowing the viewport
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "?듭떖 ?깃낵 (?섑뵆 ?곗씠??",
+    + ]
+
+      27 |           .filter((h) => { const b = h.getBoundingClientRect(); return b.width > 0 && (b.right > window.innerWidth + 1 || b.left < -1 || h.scrollWidth > h.clientWidth + 2); })
+      28 |           .map((h) => h.textContent?.slice(0, 40)));
+    > 29 |         expect(clipped, "headings overflowing the viewport").toEqual([]);
+         |                                                              ^
+      30 |         await page.evaluate(() => window.scrollTo(0, 0));
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:29:62
+
+    Error Context: test-results\qa-t11-mobile-no-errors-4x-013fc-ow-headings-fit-screenshots\error-context.md
+
+
+[30/44] tests\qa.spec.ts:14:11 ??t11 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+  10) tests\qa.spec.ts:14:11 ??t11 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ?
+
+    Error: headings overflowing the viewport
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "?듭떖 ?깃낵 (?섑뵆 ?곗씠??",
+    + ]
+
+      27 |           .filter((h) => { const b = h.getBoundingClientRect(); return b.width > 0 && (b.right > window.innerWidth + 1 || b.left < -1 || h.scrollWidth > h.clientWidth + 2); })
+      28 |           .map((h) => h.textContent?.slice(0, 40)));
+    > 29 |         expect(clipped, "headings overflowing the viewport").toEqual([]);
+         |                                                              ^
+      30 |         await page.evaluate(() => window.scrollTo(0, 0));
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:29:62
+
+    Error Context: test-results\qa-t11-tablet-no-errors-4x-13b3c-ow-headings-fit-screenshots\error-context.md
+
+
+[31/44] tests\qa.spec.ts:14:11 ??t11 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+  11) tests\qa.spec.ts:14:11 ??t11 ??desktop: no errors/4xx, no overflow, headings fit, screenshots 
+
+    Error: headings overflowing the viewport
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "?듭떖 ?깃낵 (?섑뵆 ?곗씠??",
+    + ]
+
+      27 |           .filter((h) => { const b = h.getBoundingClientRect(); return b.width > 0 && (b.right > window.innerWidth + 1 || b.left < -1 || h.scrollWidth > h.clientWidth + 2); })
+      28 |           .map((h) => h.textContent?.slice(0, 40)));
+    > 29 |         expect(clipped, "headings overflowing the viewport").toEqual([]);
+         |                                                              ^
+      30 |         await page.evaluate(() => window.scrollTo(0, 0));
+      31 |         await page.waitForTimeout(500);
+      32 |         await page.screenshot({ path: `qa-evidence/${r}-${vp.name}.png`, fullPage: true });
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:29:62
+
+    Error Context: test-results\qa-t11-desktop-no-errors-4-4439b-ow-headings-fit-screenshots\error-context.md
+
+
+[32/44] tests\qa.spec.ts:37:9 ??t11 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[33/44] tests\qa.spec.ts:14:11 ??t12 ??mobile: no errors/4xx, no overflow, headings fit, screenshots
+[34/44] tests\qa.spec.ts:14:11 ??t12 ??tablet: no errors/4xx, no overflow, headings fit, screenshots
+[35/44] tests\qa.spec.ts:14:11 ??t12 ??desktop: no errors/4xx, no overflow, headings fit, screenshots
+[36/44] tests\qa.spec.ts:37:9 ??t12 ??structure: one h1, alt text, meta, focusable CTA; reduced motion shows content
+[37/44] tests\qa.spec.ts:75:7 ??signatures ??t05 floor-plan tour: pinned steps highlight rooms
+  12) tests\qa.spec.ts:75:7 ??signatures ??t05 floor-plan tour: pinned steps highlight rooms ???????
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 4
+
+      Array [
+    -   "0",
+    -   "1",
+    -   "2",
+    -   "3",
+    +   null,
+    +   null,
+    +   null,
+    +   null,
+      ]
+
+      75 |   test("t05 floor-plan tour: pinned steps highlight rooms", async ({ page }) => {
+      76 |     await page.goto("/t05");
+    > 77 |     expect(await scrollPin(page, "#tour", 4)).toEqual(["0", "1", "2", "3"]);
+         |                                               ^
+      78 |     const fill = await page.locator('.plan-live [data-room="3"]').evaluate((e) => getComputedStyle(e).fill);
+      79 |     expect(fill).not.toBe("none");
+      80 |     expect(fill).not.toContain("rgba(0, 0, 0, 0)");
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:77:47
+
+    Error Context: test-results\qa-signatures-t05-floor-pl-34fec-inned-steps-highlight-rooms\error-context.md
+
+
+[38/44] tests\qa.spec.ts:83:7 ??signatures ??t06 relic: 3D renders and reveals; reduced motion shows poster
+  13) tests\qa.spec.ts:83:7 ??signatures ??t06 relic: 3D renders and reveals; reduced motion shows poster 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#world')
+    Expected: ""
+    Received: serializes to the same string
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('#world') with timeout 5000ms
+      - waiting for locator('#world')
+        13 횞 locator resolved to <section id="world" data-m="pin" aria-labelledby="world-h" class="border-t border-border md:min-h-svh">??/section>
+           - unexpected value "null"
+
+
+      62 |   const scrollPin = async (page: Page, sel: string, steps: number) => {
+      63 |     const pin = page.locator(sel);
+    > 64 |     await expect(pin).toHaveAttribute("data-pin-on", "");
+         |                       ^
+      65 |     const top = await pin.evaluate((e) => e.getBoundingClientRect().top + window.scrollY);
+      66 |     const seen: (string | null)[] = [];
+      67 |     for (let i = 0; i < steps; i++) {
+        at scrollPin (D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:64:23)
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:87:18
+
+    Error Context: test-results\qa-signatures-t06-relic-3D-ea30a-reduced-motion-shows-poster\error-context.md
+
+
+[39/44] tests\qa.spec.ts:95:7 ??signatures ??t07 liquid glass: backdrop blur and pointer highlight
+[40/44] tests\qa.spec.ts:104:7 ??signatures ??t08 drive scrub: HUD phases + speed advance; configurator recolours
+[41/44] tests\qa.spec.ts:118:7 ??signatures ??t09 index: hovering a project shows its floating preview
+[42/44] tests\qa.spec.ts:124:7 ??signatures ??t10 quiz: three answers produce a track recommendation
+[43/44] tests\qa.spec.ts:133:7 ??signatures ??t11 case tabs (keyboard) and ROI calculator
+  14) tests\qa.spec.ts:133:7 ??signatures ??t11 case tabs (keyboard) and ROI calculator ????????????
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('tab').nth(1)
+    Expected: "true"
+    Received: "false"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('tab').nth(1) with timeout 5000ms
+      - waiting for getByRole('tab').nth(1)
+        14 횞 locator resolved to <button role="tab" type="button" tabindex="-1" id="_r_0_-tab-1" aria-selected="false" aria-controls="_r_0_-panel" class="rounded-full border px-5 py-2.5 text-sm font-medium transition-colors border-border bg-surface hover:border-text-muted">Gridline Electronics</button>
+           - unexpected value "false"
+
+
+      136 |     await first.focus();
+      137 |     await page.keyboard.press("ArrowRight");
+    > 138 |     await expect(page.getByRole("tab").nth(1)).toHaveAttribute("aria-selected", "true");
+          |                                                ^
+      139 |     await expect(page.getByRole("tab").nth(1)).toBeFocused();
+      140 |     const before = await page.locator("[data-roi]").textContent();
+      141 |     await page.getByLabel("??異쒓퀬 嫄댁닔").fill("50000");
+        at D:\WorkSpace\DEV\Cinematic-Website-SYSTEM\apps\showcase\tests\qa.spec.ts:138:48
+
+    Error Context: test-results\qa-signatures-t11-case-tabs-keyboard-and-ROI-calculator\error-context.md
+
+
+[44/44] tests\qa.spec.ts:145:7 ??signatures ??t12 countdown is live and ticking
+  14 failed
+    tests\qa.spec.ts:14:11 ??t05 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t05 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ??
+    tests\qa.spec.ts:14:11 ??t06 ??mobile: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t06 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t06 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ??
+    tests\qa.spec.ts:14:11 ??t08 ??mobile: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t08 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t08 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ??
+    tests\qa.spec.ts:14:11 ??t11 ??mobile: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t11 ??tablet: no errors/4xx, no overflow, headings fit, screenshots ???
+    tests\qa.spec.ts:14:11 ??t11 ??desktop: no errors/4xx, no overflow, headings fit, screenshots ??
+    tests\qa.spec.ts:75:7 ??signatures ??t05 floor-plan tour: pinned steps highlight rooms ?????????
+    tests\qa.spec.ts:83:7 ??signatures ??t06 relic: 3D renders and reveals; reduced motion shows poster 
+    tests\qa.spec.ts:133:7 ??signatures ??t11 case tabs (keyboard) and ROI calculator ??????????????
+  30 passed (4.0m)

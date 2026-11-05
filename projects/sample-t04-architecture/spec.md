@@ -7,6 +7,7 @@
 - 템플릿: T04 architecture v0.1 (가상 사무소 STRATA Atelier, 실제 브랜드 아님)
 
 ## 1. Stack & Files
+데모: http://localhost:3304
 Next.js App Router / TypeScript / Tailwind / GSAP / three + @react-three/fiber (R3F, MIT). drei 미사용. 앱 위치: `site/`
 | 경로 | 소유자 | 내용 |
 |---|---|---|

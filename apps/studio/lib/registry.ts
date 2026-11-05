@@ -29,7 +29,7 @@ function walk(dir: string, out: string[] = []): string[] {
 export interface QaSummary { project: string; date: string; passed: number; total: number; verdict: string; gaps: string[] }
 export interface Gate { name: string; done: number; total: number }
 interface Project {
-  dir: string; template: string | null; specApproved: boolean; briefApproved: boolean; hasSite: boolean;
+  dir: string; sitePath: string; demoUrl?: string; template: string | null; specApproved: boolean; briefApproved: boolean; hasSite: boolean;
   reviewerSet: boolean; qaApproverSet: boolean; motions: string[]; qa: QaSummary | null;
 }
 
@@ -53,14 +53,18 @@ function loadProjects(): Project[] {
     const spec = read(path.join(dir, "spec.md")) ?? "";
     const brief = read(path.join(dir, "brief.md")) ?? "";
     const qaMd = read(path.join(dir, "qa-report.md"));
-    const siteDir = path.join(dir, "site");
-    const hasSite = fs.existsSync(path.join(siteDir, "package.json"));
+    // Site location: standalone app (projects/<name>/site) or a route in the shared showcase app (spec: "앱 위치: apps/showcase/app/tXX").
+    const showcaseRoute = spec.match(/앱 위치:\s*(apps\/showcase\/app\/t\d{2})/)?.[1];
+    const siteDir = showcaseRoute ? path.join(ROOT, showcaseRoute) : path.join(dir, "site");
+    const hasSite = showcaseRoute ? fs.existsSync(path.join(siteDir, "page.tsx")) : fs.existsSync(path.join(siteDir, "package.json"));
     const motions = new Set<string>();
-    if (hasSite) for (const f of [...walk(path.join(siteDir, "lib")), ...walk(path.join(siteDir, "components"))])
-      for (const m of fs.readFileSync(f, "utf8").matchAll(/\bM0[1-8]\b/g)) motions.add(m[0]);
+    const scan = showcaseRoute ? walk(siteDir) : [...walk(path.join(siteDir, "lib")), ...walk(path.join(siteDir, "components"))];
+    if (hasSite) for (const f of scan) for (const m of fs.readFileSync(f, "utf8").matchAll(/\bM0[1-8]\b/g)) motions.add(m[0]);
     const approval = spec.split(/^## 8\. Approval/m)[1] ?? "";
     return {
       dir: e.name,
+      sitePath: path.relative(ROOT, siteDir).replaceAll("\\", "/"),
+      demoUrl: spec.match(/데모:\s*(https?:\/\/\S+)/)?.[1],
       template: spec.match(/템플릿:\s*(T\d{2})/)?.[1] ?? null,
       specApproved: /승인됨|\d{4}-\d{2}-\d{2} 승인/.test(approval),
       briefApproved: /PM 승인:\s*승인/.test(brief),
@@ -89,8 +93,9 @@ export function getRegistry(): Registry {
       ...t, status,
       specPath: `projects/${p.dir}/spec.md`,
       motionsNote: p.specApproved ? "승인된 spec 기준" : "spec 초안 기준 (미승인)",
+      demoUrl: p.hasSite ? p.demoUrl : undefined,
       demoNote: [
-        p.hasSite ? `사이트: projects/${p.dir}/site` : "사이트 미구현 (spec 승인 대기)",
+        p.hasSite ? `사이트: ${p.sitePath}` : "사이트 미구현 (spec 승인 대기)",
         p.qa ? `QA ${p.qa.passed}/${p.qa.total} 통과, 판정: ${p.qa.verdict}` : null,
       ].filter(Boolean).join(". ") + ".",
     };

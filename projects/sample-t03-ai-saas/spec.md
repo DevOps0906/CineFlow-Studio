@@ -7,6 +7,7 @@
 - 템플릿: T03 ai-saas v0.1 (가상 제품 NOVA Flow, 실제 브랜드 아님)
 
 ## 1. Stack & Files
+데모: http://localhost:3303
 Next.js App Router / TypeScript / Tailwind / GSAP (R3F 미사용). 앱 위치: `site/`
 | 경로 | 소유자 | 내용 |
 |---|---|---|

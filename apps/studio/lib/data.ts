@@ -5,7 +5,7 @@ export const STATUS_LABEL: Record<Status, string> = { built: "구현됨 (샘플)
 export interface Template {
   id: string; slug: string; name: string; hero: string; priority: "P0" | "P1";
   status: Status; summary: string; motions: string[]; motionsNote: string;
-  specPath?: string; demoNote?: string;
+  specPath?: string; demoNote?: string; demoUrl?: string;
 }
 
 export interface Motion { id: string; name: string; group: string; mvp: boolean; implemented: boolean }
