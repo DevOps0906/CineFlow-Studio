@@ -40,3 +40,20 @@
 
 ## 8. 게이트
 브리프 승인 → 디자인 명세 승인 → 구현 리뷰 → QA 승인 → 배포
+
+## 9. 성능·품질 예산 (MVP 기준값, 파일럿 후 조정)
+| 항목 | 기준 |
+|---|---|
+| LCP (모바일 4G 에뮬레이션) | ≤ 2.5s |
+| CLS | ≤ 0.1 |
+| INP | ≤ 200ms |
+| 초기 JS (gzip) | ≤ 200KB (3D 청크 제외, 지연 로드) |
+| 히어로 영상 | ≤ 4MB (모바일 변형), 포스터 ≤ 150KB |
+| GLB 모델 | ≤ 5MB, 뷰포트 진입 시 로드 |
+| 콘솔 에러 / 404 | 0건 |
+| 가로 넘침 | 390·768·1440px에서 0건 |
+| Lighthouse 접근성 | ≥ 95 |
+| 애니메이션 | transform/opacity 위주, 언마운트 시 cleanup 필수 |
+
+## 10. MVP 우선 모션 8종
+M01 Blur-in, M02 Split reveal, M03 Parallax, M04 Pinned story, M05 Seamless video loop, M06 Media reveal, M07 Magnetic CTA, M08 Model reveal. 상세는 docs/MOTION_CATALOG.md.
