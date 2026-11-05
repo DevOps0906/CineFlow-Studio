@@ -2,6 +2,7 @@
 import MotionInit from "@/components/MotionInit";
 import type { CSSProperties } from "react";
 import Countdown from "./Countdown";
+import HeroTitle from "@/components/HeroTitle";
 
 const CTA = "mailto:tickets@example.com?subject=SEOUL%20SOUND%20WEEK%202027";
 const wrap = "mx-auto max-w-[1440px] px-6 md:px-14";
@@ -21,8 +22,8 @@ const STAGES = [["01", "Main Stage", "17:00—23:00"], ["02", "River Stage", "15
 export default function Page() {
   return (
     <>
-      <header id="top" className="grain relative isolate flex min-h-svh flex-col overflow-hidden">
-        <div aria-hidden data-m="parallax" data-parallax="10" className="sun absolute -right-[18vw] top-[8%] -z-10 h-[70vw] max-h-[900px] w-[70vw] max-w-[900px] opacity-80 md:-right-[8vw] md:h-[58vw] md:w-[58vw]" />
+      <header id="top" data-hero className="grain relative isolate flex min-h-svh flex-col overflow-hidden">
+        <div aria-hidden data-hero-depth="-0.6" data-m="parallax" data-parallax="10" className="absolute -right-[18vw] top-[8%] -z-10 h-[70vw] max-h-[900px] w-[70vw] max-w-[900px] md:-right-[8vw] md:h-[58vw] md:w-[58vw]"><div data-hero-visual="scale" className="h-full w-full"><div className="sun h-full w-full opacity-80" /></div></div>
         <nav aria-label="주 메뉴" className={`${wrap} caption flex w-full items-center justify-between pt-7`}>
           <a href="#top" className="font-display text-xl normal-case tracking-[0.04em]">SSW<span className="text-primary">27</span></a>
           <ul className="hidden gap-8 md:flex"><li><a className="hover:text-primary" href="#lineup">Lineup</a></li><li><a className="hover:text-primary" href="#stages">Stages</a></li><li><a className="hover:text-primary" href="#tickets">Tickets</a></li></ul>
@@ -30,12 +31,10 @@ export default function Page() {
         </nav>
         <div className={`${wrap} grid w-full flex-1 items-end gap-10 pb-12 pt-10 lg:grid-cols-[1.3fr_1fr]`}>
           <div>
-            <p data-m="blur-in" className="caption text-accent">May 14—17, 2027 · Nodeul Island, Seoul</p>
-            <h1 data-m="blur-in" className="mt-4 font-display text-display uppercase leading-[0.86] tracking-display">
-              Seoul<br />Sound<br />Week <span className="outline-text">2027</span>
-            </h1>
+            <p data-hero-fade className="caption text-accent">May 14—17, 2027 · Nodeul Island, Seoul</p>
+            <HeroTitle kinetic className="mt-4 font-display text-display uppercase leading-[0.86] tracking-display" parts={[{ t: "Seoul", br: true }, { t: "Sound", br: true }, { t: "Week" }, { t: "2027", className: "outline-text" }]} />
           </div>
-          <div data-m="blur-in" className="border border-border bg-bg/60 p-5 backdrop-blur-md md:p-6 lg:mb-4">
+          <div data-hero-fade className="border border-border bg-bg/60 p-5 backdrop-blur-md md:p-6 lg:mb-4">
             <p className="caption mb-3 text-text-muted">Opening night in</p>
             <Countdown />
             <p className="mt-6 text-text-muted">4일, 4개 스테이지, 60팀. 한강 한가운데 섬에서 열리는 도시의 소리 축제.</p>
@@ -46,7 +45,7 @@ export default function Page() {
 
       <main id="main">
         <div aria-hidden className="overflow-hidden border-y border-border bg-primary py-4 text-primary-fg">
-          <div className="marquee font-display text-[28px] uppercase md:text-[40px]" style={{ "--dur": "36s" } as CSSProperties}>
+          <div data-marquee="36" className="marquee font-display text-[28px] uppercase md:text-[40px]" style={{ "--dur": "36s" } as CSSProperties}>
             {[0, 1].map((k) => <span key={k} className="whitespace-nowrap pr-8">14—17 May 2027 ✶ Nodeul Island ✶ 4 Stages ✶ 60 Artists ✶ 14—17 May 2027 ✶ Nodeul Island ✶ 4 Stages ✶ 60 Artists ✶&nbsp;</span>)}
           </div>
         </div>

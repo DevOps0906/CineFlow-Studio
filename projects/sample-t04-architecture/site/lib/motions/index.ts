@@ -1,5 +1,6 @@
-﻿import gsap from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { initHero } from "../hero";
 
 export const PROGRESS_EVENT = "m04:progress";
 
@@ -10,7 +11,9 @@ export const PROGRESS_EVENT = "m04:progress";
  */
 export function initMotions(root: HTMLElement): () => void {
   gsap.registerPlugin(ScrollTrigger);
+  const heroCleanup = initHero(root);
   const mm = gsap.matchMedia();
+  const setup = () => {
 
   mm.add("(prefers-reduced-motion: no-preference)", () => {
     root.setAttribute("data-motion-ready", "");
@@ -54,5 +57,9 @@ export function initMotions(root: HTMLElement): () => void {
     return () => { st.kill(); pin.removeAttribute("data-pin-on"); pin.removeAttribute("data-active"); };
   });
 
-  return () => { mm.revert(); ScrollTrigger.getAll().forEach((t) => t.kill()); };
+  };
+  // Hero intro runs immediately; scroll-driven recipes wait for idle so they don't block first interaction (TBT).
+  const ric: (cb: () => void, o?: { timeout: number }) => number = window.requestIdleCallback ?? ((cb) => window.setTimeout(cb, 200));
+  const cic: (id: number) => void = window.cancelIdleCallback ?? window.clearTimeout;
+  const idleId = ric(setup, { timeout: 1200 });  return () => { cic(idleId); heroCleanup(); mm.revert(); ScrollTrigger.getAll().forEach((t) => t.kill()); };
 }

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useEffect, useRef } from "react";
 import { initMotions } from "@/lib/motions";
 
@@ -11,7 +11,13 @@ export default function MotionInit() {
   const ref = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     const root = ref.current?.closest<HTMLElement>(".tpl");
-    return root ? initMotions(root) : undefined;
+    if (!root) return;
+    // Match the overscroll/background colour to the template once (instead of a costly html:has() selector).
+    const html = document.documentElement;
+    const prev = html.style.backgroundColor;
+    html.style.backgroundColor = getComputedStyle(root).backgroundColor;
+    const stop = initMotions(root);
+    return () => { stop(); html.style.backgroundColor = prev; };
   }, []);
   return <span ref={ref} hidden />;
 }

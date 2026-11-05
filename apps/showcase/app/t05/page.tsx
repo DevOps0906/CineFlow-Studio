@@ -1,3 +1,4 @@
+import HeroTitle from "@/components/HeroTitle";
 // T05 THE ARDEN — motions: M01 Blur-in, M03 Parallax, M04 Pinned story (floor-plan tour), M06 Media reveal
 import MotionInit from "@/components/MotionInit";
 const CTA = "mailto:sales@example.com?subject=The%20Arden%20Private%20tour";
@@ -13,12 +14,12 @@ function Facade() {
   return (
     <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" className="h-full w-full" role="img" aria-label="The Arden 테라스형 외관 (자체 제작 일러스트)">
       {TERRACES.map((t, ti) => (
-        <g key={ti}>
+        <g key={ti} data-hero-depth={(0.15 + ti * 0.2).toFixed(2)}>
           <rect x={t.x} y={t.y} width={t.w} height={t.h} fill={ti % 2 ? "#18241f" : "#1c2a24"} />
           <path d={`M${t.x - 14} ${t.y}H${t.x + t.w + 14}`} stroke="#c9a46a" strokeWidth="3" />
           {Array.from({ length: t.rows }).map((_, r) =>
             Array.from({ length: Math.floor((t.w - 40) / 38) }).map((__, c) => (
-              <rect key={`${r}-${c}`} x={t.x + 24 + c * 38} y={t.y + 14 + r * 62} width="16" height="44" className={`win ${(c * 7 + r * 5 + ti * 3) % 11 === 0 || (c * 3 + r + ti) % 13 === 0 ? "lit" : ""}`} />
+              <rect key={`${r}-${c}`} x={t.x + 24 + c * 38} y={t.y + 14 + r * 62} width="16" height="44" {...((c * 7 + r * 5 + ti * 3) % 11 === 0 || (c * 3 + r + ti) % 13 === 0 ? { className: "win lit", "data-hero-pop": "" } : { className: "win" })} />
             )),
           )}
           {Array.from({ length: Math.floor(t.w / 46) }).map((_, i) => (
@@ -64,8 +65,8 @@ const TOUR = [
 export default function Page() {
   return (
     <>
-      <header id="top" className="dusk grain relative isolate flex min-h-svh flex-col overflow-hidden">
-        <div aria-hidden className="absolute left-1/2 top-[18%] -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(233,200,138,.22),transparent_62%)] blur-xl" />
+      <header id="top" data-hero className="dusk grain relative isolate flex min-h-svh flex-col overflow-hidden">
+        <div aria-hidden data-hero-depth="-0.3" className="absolute left-1/2 top-[18%] -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(233,200,138,.22),transparent_62%)] blur-xl" />
         <nav aria-label="주 메뉴" className={`${wrap} caption relative z-10 flex w-full items-center justify-between pt-8 text-text-muted`}>
           <a href="#top" className="text-text">The Arden</a>
           <ul className="hidden gap-8 md:flex">
@@ -75,16 +76,16 @@ export default function Page() {
           </ul>
           <a href={CTA} className="text-primary">Private tour</a>
         </nav>
-        <div className={`${wrap} relative z-10 w-full pt-14 text-center md:pt-20`}>
-          <p data-m="blur-in" className="caption text-primary">Han-nam, Seoul — 24 Residences</p>
-          <h1 data-m="blur-in" className="mt-6 font-display text-display font-medium italic leading-[0.85] tracking-display">The Arden</h1>
-          <p data-m="blur-in" className="mx-auto mt-6 max-w-lg text-text-muted">한남동 언덕 위, 단 24세대. 모든 세대가 정원을 품은 테라스 레지던스.</p>
-          <a data-cta data-m="blur-in" href={CTA} className="caption mt-9 inline-block border border-primary px-7 py-4 text-primary transition-colors hover:bg-primary hover:text-primary-fg">프라이빗 투어 예약</a>
+        <div data-hero-out="0.6" className={`${wrap} relative z-10 w-full pt-14 text-center md:pt-20`}>
+          <p data-hero-fade className="caption text-primary">Han-nam, Seoul — 24 Residences</p>
+          <HeroTitle className="mt-6 font-display text-display font-medium italic leading-[0.85] tracking-display" parts={[{ t: "The Arden" }]} />
+          <p data-hero-fade className="mx-auto mt-6 max-w-lg text-text-muted">한남동 언덕 위, 단 24세대. 모든 세대가 정원을 품은 테라스 레지던스.</p>
+          <a data-cta data-hero-fade href={CTA} className="caption mt-9 inline-block border border-primary px-7 py-4 text-primary transition-colors hover:bg-primary hover:text-primary-fg">프라이빗 투어 예약</a>
         </div>
         <div className="relative mt-auto h-[38svh] min-h-[220px] w-full md:h-[46svh]">
-          <div data-m="parallax" data-parallax="4" className="absolute inset-0"><Facade /></div>
+          <div data-m="parallax" data-parallax="4" className="absolute inset-0"><div data-hero-visual="rise" className="h-full w-full"><Facade /></div></div>
         </div>
-        <dl className="caption relative z-10 grid grid-cols-2 gap-y-4 border-t border-border bg-bg px-6 py-5 md:grid-cols-4 md:px-14">
+        <dl data-hero-fade className="caption relative z-10 grid grid-cols-2 gap-y-4 border-t border-border bg-bg px-6 py-5 md:grid-cols-4 md:px-14">
           {[["Completion", "2027 Q3"], ["Residences", "24"], ["Size", "198—312㎡"], ["Ceiling", "3.2 m"]].map(([k, v]) => (
             <div key={k}><dt className="text-text-muted">{k}</dt><dd className="mt-1 font-display text-xl normal-case tracking-normal text-text">{v}</dd></div>
           ))}

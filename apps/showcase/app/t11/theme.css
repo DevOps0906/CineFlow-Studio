@@ -29,4 +29,4 @@
 @media (width >= 1200px) {
   .theme-t11 { --text-display: 80px; --text-h1: 52px; --text-h2: 34px; --text-body: 18px; --text-caption: 13px; }
 }
-html:has(.theme-t11) { background-color: #f6f8fb; color-scheme: light; }
+.theme-t11 { color-scheme: light; }

@@ -1,9 +1,9 @@
 /** Self-made side-profile EV (SVG). Body colour comes from the CSS variable --car. */
-export default function Car({ className = "", label = "VELOCE E1 측면 일러스트" }: { className?: string; label?: string }) {
+export default function Car({ className = "", label = "VELOCE E1 측면 일러스트", spin = false }: { className?: string; label?: string; spin?: boolean }) {
   const wheel = (cx: number) => (
     <g key={cx}>
       <circle cx={cx} cy="200" r="54" fill="#0c0d0f" />
-      <g className="wheel">
+      <g className="wheel" {...(spin ? { "data-hero-spin": "" } : {})}>
         <circle cx={cx} cy="200" r="46" fill="#111214" stroke="#2a2d32" strokeWidth="2" />
         <circle cx={cx} cy="200" r="33" fill="none" stroke="#c9ccd1" strokeWidth="3" />
         {[0, 72, 144, 216, 288].map((a) => (

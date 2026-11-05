@@ -44,6 +44,11 @@ for (const r of ROUTES) {
       await cta.focus();
       await expect(cta).toBeFocused();
       await expect(page.locator("[data-motion-ready]")).toHaveCount(1);
+      // Hero Kit: pre-paint flag, intro completes, chars land at rest
+      await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
+      await expect(page.locator("[data-hero][data-hero-done]")).toHaveCount(1, { timeout: 8000 });
+      expect(await page.locator("[data-hero-title] [data-char]").count()).toBeGreaterThan(2);
+      expect(await page.locator("[data-hero-title] [data-char]").last().evaluate((e) => getComputedStyle(e).transform)).toMatch(/^(none|matrix\(1, 0, 0, 1, 0, 0\))$/);
 
       const ctx = await browser.newContext({ reducedMotion: "reduce" });
       const p2 = await ctx.newPage();
@@ -51,6 +56,9 @@ for (const r of ROUTES) {
       await expect(p2.locator("[data-motion-ready]")).toHaveCount(0);
       await expect(p2.locator("[data-pin-on]")).toHaveCount(0);
       expect(await p2.locator("h1").evaluate((e) => getComputedStyle(e).opacity)).toBe("1");
+      expect(await p2.locator("html").getAttribute("data-motion")).toBeNull();
+      await expect(p2.locator("[data-hero-ready]")).toHaveCount(0);
+      expect(await p2.locator("[data-hero-title] [data-char]").first().evaluate((e) => getComputedStyle(e).transform)).toBe("none");
       await ctx.close();
     });
   });

@@ -95,3 +95,12 @@ body {
 [data-pin-on][data-active="0"] [data-step="0"],
 [data-pin-on][data-active="1"] [data-step="1"],
 [data-pin-on][data-active="2"] [data-step="2"] { opacity: 1; border-color: var(--color-primary); }
+
+/* ---------- Hero Kit (lib/hero.ts, shared copy of apps/showcase/lib/hero.ts) ---------- */
+.hero-word { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.22em 0.08em 0.14em; margin: -0.22em -0.08em -0.14em; }
+.hero-char { display: inline-block; }
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) [data-hero-title] [data-char] { transform: translateY(112%); }
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) :is([data-hero-fade], [data-hero-visual], [data-hero-pop], [data-hero-draw]) { opacity: 0; }
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) [data-hero-bar] { transform: scaleX(0); }
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) :is([data-char], [data-hero-fade], [data-hero-visual], [data-hero-pop], [data-hero-draw], [data-hero-bar]) { animation: hero-fallback 0.01s 3s forwards; }
+@keyframes hero-fallback { to { opacity: 1; transform: none; } }

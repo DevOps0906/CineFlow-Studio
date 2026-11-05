@@ -133,3 +133,16 @@ test("reduced motion: no intro light sweep (starts at 16:40)", async ({ browser 
   await expect(page.locator("header[data-hour]")).toHaveAttribute("data-hour", "16.67");
   await ctx.close();
 });
+test("Hero Kit: intro completes, chars at rest; reduced motion has no hidden states", async ({ page, browser }) => {
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
+  await expect(page.locator("[data-hero][data-hero-done]")).toHaveCount(1, { timeout: 8000 });
+  expect(await page.locator("[data-hero-title] [data-char]").last().evaluate((e) => getComputedStyle(e).transform)).toMatch(/^(none|matrix\(1, 0, 0, 1, 0, 0\))$/);
+  const ctx = await browser.newContext({ reducedMotion: "reduce" });
+  const p2 = await ctx.newPage();
+  await p2.goto("/");
+  expect(await p2.locator("html").getAttribute("data-motion")).toBeNull();
+  await expect(p2.locator("[data-hero-ready]")).toHaveCount(0);
+  expect(await p2.locator("[data-hero-title] [data-char]").first().evaluate((e) => getComputedStyle(e).transform)).toBe("none");
+  await ctx.close();
+});

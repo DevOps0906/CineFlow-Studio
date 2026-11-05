@@ -2,6 +2,7 @@
 import MotionInit from "@/components/MotionInit";
 import SplitText from "@/components/SplitText";
 import ProjectIndex from "./ProjectIndex";
+import HeroTitle from "@/components/HeroTitle";
 
 const MAIL = "mailto:hana@example.com?subject=Project%20inquiry";
 const wrap = "mx-auto max-w-[1440px] px-6 md:px-12";
@@ -9,20 +10,17 @@ const wrap = "mx-auto max-w-[1440px] px-6 md:px-12";
 export default function Page() {
   return (
     <>
-      <header id="top" className="relative flex min-h-svh flex-col">
+      <header id="top" data-hero className="relative flex min-h-svh flex-col">
         <nav aria-label="주 메뉴" className={`${wrap} caption flex w-full items-center justify-between pt-7`}>
           <a href="#top">Hana Seo</a>
           <ul className="hidden gap-8 md:flex"><li><a className="hover:text-primary" href="#index">Index</a></li><li><a className="hover:text-primary" href="#about">About</a></li><li><a className="hover:text-primary" href="#contact">Contact</a></li></ul>
           <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-primary" />Available 01.2027</span>
         </nav>
-        <h1 className={`${wrap} w-full flex-1 content-center pt-12 font-display text-display font-extrabold uppercase leading-[0.84] tracking-display`}>
-          <span className="mask"><SplitText text="Hana" /></span>
-          <span className="mask pl-[0.6em] text-primary"><SplitText text="Seo" /></span>
-        </h1>
-        <div className={`${wrap} grid w-full gap-6 border-t border-text py-8 md:grid-cols-3`}>
-          <p data-m="blur-in" className="max-w-xs">Designer & Art Director based in Seoul. Identity, interface and type.</p>
-          <p data-m="blur-in" className="max-w-xs text-text-muted">천천히, 의도적으로 움직이는 브랜드를 위한 아이덴티티와 인터페이스를 만듭니다.</p>
-          <a data-cta href="#index" className="caption self-end md:text-right">(Scroll) ↓ Selected index</a>
+        <HeroTitle magnetic className={`${wrap} w-full flex-1 content-center pt-12 font-display text-display font-extrabold uppercase leading-[0.84] tracking-display`} parts={[{ t: "Hana", className: "block" }, { t: "Seo", className: "block pl-[0.6em] text-primary" }]} />
+        <div data-hero-bar className={`${wrap} pointer-events-none h-px w-full bg-text`} aria-hidden /><div className={`${wrap} grid w-full gap-6 py-8 md:grid-cols-3`}>
+          <p data-hero-fade className="max-w-xs">Designer & Art Director based in Seoul. Identity, interface and type.</p>
+          <p data-hero-fade className="max-w-xs text-text-muted">천천히, 의도적으로 움직이는 브랜드를 위한 아이덴티티와 인터페이스를 만듭니다.</p>
+          <a data-cta data-hero-fade href="#index" className="caption self-end md:text-right">(Scroll) ↓ Selected index</a>
         </div>
       </header>
 

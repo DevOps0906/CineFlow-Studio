@@ -57,3 +57,17 @@
 
 ## 10. MVP 우선 모션 8종
 M01 Blur-in, M02 Split reveal, M03 Parallax, M04 Pinned story, M05 Seamless video loop, M06 Media reveal, M07 Magnetic CTA, M08 Model reveal. 상세는 docs/MOTION_CATALOG.md.
+
+## 11. 진행 현황 (2026-11-06)
+| 항목 | 상태 |
+|---|---|
+| 템플릿 12종 | 샘플 구현 완료 (P0: 단독 사이트 3, P1: apps/showcase 9) |
+| MVP 모션 8종 | 구현 완료 + Hero Kit(GSAP) 전 히어로 적용 |
+| FR01 템플릿 선택 | 대시보드 카테고리 + 데모 링크 (버전 고정은 미구현) |
+| FR02 명세 생성 | 템플릿·스크립트 기반 (자동 생성 UI 없음) |
+| FR03 애니메이션·reduced motion | 완료 |
+| FR04 라이선스 체크 에셋 | 절차 문서화 (design/AI_IMAGE_PROMPTS.md), 현재 외부 에셋 0 |
+| FR05 시각 QA·이슈 기록 | Playwright + 컨택트 시트 + qa-report |
+| FR06 GitHub PR/프리뷰 | 미구현 (Vercel 연동 필요) |
+| 성능 예산(§9) | Lighthouse 기록 docs/lighthouse/ (baseline·after) |
+| 배포 게이트 | 리뷰어·QA 승인자 미지정 → 배포 불가 |

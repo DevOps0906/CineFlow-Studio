@@ -1,7 +1,7 @@
 // T11 ORBITAL — motions: M01 Blur-in, M02 Split reveal, M07 Magnetic CTA (+ count-up metrics, ROI calculator, case tabs)
 import MotionInit from "@/components/MotionInit";
-import SplitText from "@/components/SplitText";
 import { CaseTabs, RoiCalc } from "./Interactive";
+import HeroTitle from "@/components/HeroTitle";
 
 const CTA = "mailto:sales@example.com?subject=ORBITAL%20Demo";
 const wrap = "mx-auto max-w-[1280px] px-6 md:px-10";
@@ -13,17 +13,17 @@ function DashboardMock() {
     <figure className="rounded-2xl border border-border bg-surface p-6 shadow-[0_40px_80px_-40px_rgba(11,31,58,.3)]" aria-label="ORBITAL 대시보드 예시 화면">
       <div className="flex items-center justify-between">
         <p className="text-sm font-semibold">운송비 추이 · 최근 12주</p>
-        <span className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-xs text-primary">-18.4%</span>
+        <span className="rounded-full bg-primary px-2.5 py-1 font-mono text-xs text-primary-fg">-18.4%</span>
       </div>
       <svg viewBox="0 0 400 170" className="mt-4 block w-full" role="img" aria-label="운송비가 12주 동안 18% 감소한 선 그래프">
         <g stroke="#dfe5ee">{[40, 80, 120, 160].map((y) => <path key={y} d={`M10 ${y}H390`} />)}</g>
-        <path d={`${d} L372 170 L20 170Z`} fill="rgb(0 128 107 / .1)" />
-        <path d={d} fill="none" stroke="#00806b" strokeWidth="2.5" />
-        <circle cx="372" cy={58 * 1.6} r="5" fill="#00806b" />
+        <path data-hero-fade d={`${d} L372 170 L20 170Z`} fill="rgb(0 128 107 / .1)" />
+        <path data-hero-draw d={d} fill="none" stroke="#00806b" strokeWidth="2.5" />
+        <circle data-hero-pop cx="372" cy={58 * 1.6} r="5" fill="#00806b" />
       </svg>
       <div className="mt-4 grid grid-cols-3 gap-3">
         {[["정시 도착", "99.2%"], ["활성 운송사", "12"], ["오늘 출고", "3,412"]].map(([k, v]) => (
-          <div key={k} className="rounded-lg bg-bg p-3"><p className="text-xs text-text-muted">{k}</p><p className="font-display text-lg font-semibold">{v}</p></div>
+          <div key={k} data-hero-pop className="rounded-lg bg-bg p-3"><p className="text-xs text-text-muted">{k}</p><p className="font-display text-lg font-semibold">{v}</p></div>
         ))}
       </div>
     </figure>
@@ -33,7 +33,7 @@ function DashboardMock() {
 export default function Page() {
   return (
     <>
-      <header id="top">
+      <header id="top" data-hero>
         <nav aria-label="주 메뉴" className={`${wrap} flex items-center justify-between py-6`}>
           <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight"><span aria-hidden className="h-5 w-5 rounded-full border-[5px] border-primary" />ORBITAL</a>
           <ul className="hidden gap-8 text-sm font-medium text-text-muted md:flex"><li><a className="hover:text-text" href="#platform">플랫폼</a></li><li><a className="hover:text-text" href="#cases">고객 사례</a></li><li><a className="hover:text-text" href="#roi">ROI 계산</a></li></ul>
@@ -41,20 +41,20 @@ export default function Page() {
         </nav>
         <div className={`${wrap} grid gap-14 pb-20 pt-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pb-28 lg:pt-16`}>
           <div>
-            <p data-m="blur-in" className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-primary">Logistics Cloud for B2B</p>
-            <h1 className="mt-5 font-display text-display font-semibold leading-[1.08] tracking-display"><SplitText text="물류비 18% 절감, 첫 분기부터." accent={["18%"]} /></h1>
-            <p data-m="blur-in" className="mt-6 max-w-lg text-lg text-text-muted">경로 최적화, 운송사 자동 배정, 실시간 추적을 하나의 플랫폼에서. 340개 기업이 ORBITAL로 운송비를 줄였습니다.</p>
-            <div data-m="blur-in" className="mt-9 flex flex-wrap gap-3">
+            <p data-hero-fade className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-primary">Logistics Cloud for B2B</p>
+            <HeroTitle className="mt-5 font-display text-display font-semibold leading-[1.08] tracking-display" parts={[{ t: "물류비" }, { t: "18%", className: "text-primary" }, { t: "절감, 첫 분기부터." }]} />
+            <p data-hero-fade className="mt-6 max-w-lg text-lg text-text-muted">경로 최적화, 운송사 자동 배정, 실시간 추적을 하나의 플랫폼에서. 340개 기업이 ORBITAL로 운송비를 줄였습니다.</p>
+            <div data-hero-fade className="mt-9 flex flex-wrap gap-3">
               <a data-m="magnetic" data-cta href={CTA} className="rounded-lg bg-primary px-6 py-4 font-semibold text-primary-fg">30분 데모 요청</a>
               <a href="#cases" className="rounded-lg border border-border bg-surface px-6 py-4 font-semibold">고객 사례 보기</a>
             </div>
           </div>
-          <div data-m="blur-in"><DashboardMock /></div>
+          <div data-hero-visual="rise" data-hero-tilt><DashboardMock /></div>
         </div>
         <div className="border-y border-border bg-surface">
           <div className={`${wrap} flex flex-wrap items-center justify-between gap-x-10 gap-y-3 py-6 font-mono text-sm text-text-muted`}>
             <span className="text-xs">340+ teams</span>
-            {["HANEUL FOODS", "GRIDLINE", "MORROW", "NORTHPORT", "SEOWON CHEM"].map((n) => <span key={n} className="font-semibold tracking-[0.1em] text-text/60">{n}</span>)}
+            {["HANEUL FOODS", "GRIDLINE", "MORROW", "NORTHPORT", "SEOWON CHEM"].map((n) => <span key={n} className="font-semibold tracking-[0.1em] text-text-muted">{n}</span>)}
           </div>
         </div>
       </header>

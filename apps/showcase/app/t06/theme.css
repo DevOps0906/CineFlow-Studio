@@ -29,4 +29,4 @@
 @media (width >= 1200px) {
   .theme-t06 { --text-display: 160px; --text-h1: 76px; --text-h2: 44px; --text-body: 18px; --text-caption: 13px; }
 }
-html:has(.theme-t06) { background-color: #05060a; color-scheme: dark; }
+.theme-t06 { color-scheme: dark; }

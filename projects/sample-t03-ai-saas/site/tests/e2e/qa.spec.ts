@@ -43,14 +43,19 @@ test("reduced motion: no motion init, split words visible, pin off", async ({ br
   await page.goto("/");
   await expect(page.locator("[data-motion-ready]")).toHaveCount(0);
   await expect(page.locator("[data-pin-on]")).toHaveCount(0);
-  for (const w of await page.locator("[data-split-word]").all()) expect(await w.evaluate((e) => getComputedStyle(e).opacity)).toBe("1");
+  for (const w of await page.locator("[data-hero-title] [data-char]").all()) expect(await w.evaluate((e) => getComputedStyle(e).transform)).toBe("none");
+  await expect(page.locator("[data-hero-ready]")).toHaveCount(0);
   await ctx.close();
 });
 
-test("M02: split words all reach opacity 1 when motion is on", async ({ page }) => {
+test("Hero Kit (M02 char split): intro completes and every char lands at rest", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("[data-motion-ready]")).toHaveCount(1);
-  await expect.poll(async () => (await page.locator("[data-split-word]").evaluateAll((els) => els.map((e) => getComputedStyle(e).opacity))).every((o) => o === "1")).toBe(true);
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
+  await expect(page.locator("[data-hero][data-hero-done]")).toHaveCount(1, { timeout: 8000 });
+  const t = await page.locator("[data-hero-title] [data-char]").evaluateAll((els) => els.map((e) => getComputedStyle(e).transform));
+  expect(t.length).toBeGreaterThan(10);
+  expect(t.every((v) => v === "none" || v === "matrix(1, 0, 0, 1, 0, 0)")).toBe(true);
 });
 
 test("M04 desktop: pinned and active step advances 0 -> 1 -> 2", async ({ page }) => {

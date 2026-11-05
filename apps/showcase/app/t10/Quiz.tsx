@@ -33,7 +33,7 @@ export default function Quiz({ cta }: { cta: string }) {
             <p aria-hidden className="font-display text-lg font-bold"><span className="mr-2 font-mono text-sm text-primary">Q{i + 1}</span>{q.q}</p>
             <div className="mt-4 grid gap-2 sm:grid-cols-3">
               {q.a.map(([label, v]) => (
-                <label key={label} className={`cursor-pointer rounded-xl border px-4 py-3 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-primary ${ans[i] === v ? "border-primary bg-primary/10 font-semibold" : "border-border hover:border-text-muted"}`}>
+                <label key={label} className={`cursor-pointer rounded-xl border px-4 py-3 text-sm transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-primary ${ans[i] === v ? "border-primary bg-primary/10 font-semibold" : "border-border hover:border-text-muted"}`}>
                   <input type="radio" name={`q${i}`} value={v} className="sr-only" checked={ans[i] === v}
                     onChange={() => setAns((s) => s.map((x, k) => (k === i ? v : x)))} />
                   {label}

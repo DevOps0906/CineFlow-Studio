@@ -24,7 +24,7 @@ for (const id of IDS) {
 .theme-${id} {${theme}
 }
 ${medias}
-html:has(.theme-${id}) { background-color: ${bg}; color-scheme: ${lum(bg) < 0.4 ? "dark" : "light"}; }
+.theme-${id} { color-scheme: ${lum(bg) < 0.4 ? "dark" : "light"}; }
 `;
   fs.mkdirSync(path.join("app", id), { recursive: true });
   fs.writeFileSync(path.join("app", id, "theme.css"), out);

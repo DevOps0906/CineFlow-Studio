@@ -1,7 +1,7 @@
 // T10 CODELAB 12 — motions: M01 Blur-in, M02 Split reveal, M07 Magnetic CTA (+ track-finder quiz funnel)
 import MotionInit from "@/components/MotionInit";
-import SplitText from "@/components/SplitText";
 import Quiz from "./Quiz";
+import HeroTitle from "@/components/HeroTitle";
 
 const CTA = "mailto:admissions@example.com?subject=CODELAB%2012%20%EC%83%81%EB%8B%B4";
 const wrap = "mx-auto max-w-[1280px] px-6 md:px-10";
@@ -22,7 +22,7 @@ const FAQ = [
 export default function Page() {
   return (
     <>
-      <header id="top" className="relative overflow-hidden">
+      <header id="top" data-hero className="relative overflow-hidden">
         <div aria-hidden className="absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(194,65,12,.12),transparent_65%)]" />
         <nav aria-label="주 메뉴" className={`${wrap} flex items-center justify-between py-6`}>
           <a href="#top" className="font-display text-xl font-extrabold tracking-tight">codelab<span className="text-primary">12</span></a>
@@ -31,25 +31,25 @@ export default function Page() {
         </nav>
         <div className={`${wrap} relative grid gap-12 pb-20 pt-10 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:pb-28 lg:pt-16`}>
           <div>
-            <p data-m="blur-in" className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 font-mono text-xs font-medium text-primary">● 2027년 1월 기수 모집 중</p>
-            <h1 className="mt-6 font-display text-display font-extrabold leading-[1.08] tracking-display"><SplitText text="12주 뒤, 개발자로 출근합니다." accent={["개발자로"]} /></h1>
-            <p data-m="blur-in" className="mt-6 max-w-lg text-lg text-text-muted">현업 개발자 멘토와 12주 몰입 과정. 수료 후 6개월 안에 87%가 개발자로 취업했습니다.</p>
-            <div data-m="blur-in" className="mt-9 flex flex-wrap gap-3">
+            <p data-hero-fade className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 font-mono text-xs font-medium text-primary">● 2027년 1월 기수 모집 중</p>
+            <HeroTitle className="mt-6 font-display text-display font-extrabold leading-[1.08] tracking-display" parts={[{ t: "12주 뒤," }, { t: "개발자로", className: "text-primary" }, { t: "출근합니다." }]} />
+            <p data-hero-fade className="mt-6 max-w-lg text-lg text-text-muted">현업 개발자 멘토와 12주 몰입 과정. 수료 후 6개월 안에 87%가 개발자로 취업했습니다.</p>
+            <div data-hero-fade className="mt-9 flex flex-wrap gap-3">
               <a data-m="magnetic" data-cta href="#quiz" className={btn}>무료 트랙 진단 시작</a>
               <a href="#curriculum" className="inline-flex items-center rounded-xl border border-border bg-surface px-6 py-4 font-semibold">커리큘럼 보기</a>
             </div>
-            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4">
+            <dl data-hero-fade className="mt-12 grid max-w-lg grid-cols-3 gap-4">
               {[["1,240", "누적 수료생"], ["87%", "6개월 내 취업"], ["4.9", "수강 만족도"]].map(([n, l]) => (
                 <div key={l}><dd className="font-display text-3xl font-extrabold tracking-tight">{n}</dd><dt className="text-sm text-text-muted">{l}</dt></div>
               ))}
             </dl>
           </div>
-          <aside data-m="blur-in" aria-label="다음 기수 정보" className="rounded-3xl border border-border bg-surface p-7 shadow-[0_30px_80px_-40px_rgba(27,27,58,.35)]">
+          <aside data-hero-visual="rise" data-hero-tilt aria-label="다음 기수 정보" className="rounded-3xl border border-border bg-surface p-7 shadow-[0_30px_80px_-40px_rgba(27,27,58,.35)]">
             <p className="font-mono text-xs uppercase tracking-[0.12em] text-text-muted">Next cohort</p>
             <p className="mt-2 font-display text-3xl font-extrabold">2027.01.05 개강</p>
             <div className="mt-6">
               <div className="flex justify-between text-sm"><span className="font-semibold">잔여 17석</span><span className="text-text-muted">23 / 40 등록</span></div>
-              <div className="mt-2 h-2.5 rounded-full bg-border" role="progressbar" aria-valuenow={23} aria-valuemin={0} aria-valuemax={40} aria-label="등록 현황"><div className="h-full w-[57.5%] rounded-full bg-primary" /></div>
+              <div className="mt-2 h-2.5 rounded-full bg-border" role="progressbar" aria-valuenow={23} aria-valuemin={0} aria-valuemax={40} aria-label="등록 현황"><div data-hero-bar className="h-full w-[57.5%] rounded-full bg-primary" /></div>
             </div>
             <ul className="mt-6 space-y-3 text-sm">
               {[["얼리버드 마감", "12월 20일"], ["형태", "온라인 + 판교 캠퍼스"], ["시간", "주 5일 · 10:00—19:00"]].map(([k, v]) => <li key={k} className="flex justify-between border-b border-border pb-3"><span className="text-text-muted">{k}</span><span className="font-semibold">{v}</span></li>)}
@@ -116,7 +116,7 @@ export default function Page() {
           <div className={`${wrap} flex flex-col items-start justify-between gap-8 py-20 md:flex-row md:items-center`}>
             <div>
               <h2 id="cta-h" className="font-display text-h2 font-extrabold leading-tight">얼리버드 30%, 12월 20일 마감</h2>
-              <p className="mt-2 opacity-90">잔여 17석 · 상담 후 결정해도 늦지 않아요.</p>
+              <p className="mt-2">잔여 17석 · 상담 후 결정해도 늦지 않아요.</p>
             </div>
             <a data-m="magnetic" href={CTA} className="rounded-xl bg-white px-7 py-4 font-bold text-primary">무료 상담 신청</a>
           </div>

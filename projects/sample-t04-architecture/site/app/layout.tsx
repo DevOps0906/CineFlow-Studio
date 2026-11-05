@@ -1,4 +1,4 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
@@ -16,7 +16,11 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${tight.variable} ${mono.variable}`}>
+    <html lang="ko" suppressHydrationWarning className={`${tight.variable} ${mono.variable}`}>
+      <head>
+        {/* Hero Kit: mark motion-capable visitors before first paint so intro states never flash. */}
+        <script dangerouslySetInnerHTML={{ __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.dataset.motion='on'" }} />
+      </head>
       <body>
         <a className="skip-link" href="#main">본문으로 건너뛰기</a>
         {children}

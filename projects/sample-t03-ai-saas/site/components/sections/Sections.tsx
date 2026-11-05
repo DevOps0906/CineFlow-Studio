@@ -1,4 +1,4 @@
-import SplitText from "./SplitText";
+import HeroTitle from "@/components/HeroTitle";
 import Terminal from "./Terminal";
 
 const CTA_HREF = "mailto:demo@example.com?subject=NOVA%20Flow%20%EB%AC%B4%EB%A3%8C%20%EB%8D%B0%EB%AA%A8%20%EC%8B%A0%EC%B2%AD";
@@ -8,9 +8,9 @@ const btn = "inline-flex items-center rounded-control bg-primary px-6 py-4 font-
 export function Hero() {
   const stats = [["68%", "반복 업무 시간 절감"], ["12 min", "첫 워크플로 구축"], ["99.9%", "월간 실행 성공률"], ["240+", "연동 앱"]];
   return (
-    <header id="top" className="grain relative isolate overflow-hidden">
+    <header id="top" data-hero className="grain relative isolate overflow-hidden">
       <div aria-hidden className="grid-bg absolute inset-0 -z-10" />
-      <div aria-hidden className="absolute -top-[12%] right-[6%] -z-10 h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,rgba(198,244,50,.13),transparent_60%)] blur-2xl" />
+      <div aria-hidden data-hero-depth="-0.4" className="absolute -top-[12%] right-[6%] -z-10 h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,rgba(198,244,50,.13),transparent_60%)] blur-2xl" />
 
       <nav aria-label="주 메뉴" className={`${wrap} relative z-10 flex items-center justify-between py-7 font-mono text-[13px] text-text-muted`}>
         <a href="#top" className="font-display text-lg font-bold tracking-tight text-text">nova<span className="text-primary">/</span>flow</a>
@@ -23,25 +23,23 @@ export function Hero() {
       </nav>
 
       <div className={`${wrap} relative z-10 grid gap-14 pb-16 pt-8 lg:grid-cols-[1.12fr_1fr] lg:items-center lg:gap-14 lg:pt-14`}>
-        <div>
-          <span data-m="blur-in" className="inline-flex items-center gap-2.5 rounded-full border border-border px-3.5 py-2 font-mono text-xs text-text-muted">
+        <div data-hero-out="0.5">
+          <span data-hero-fade className="inline-flex items-center gap-2.5 rounded-full border border-border px-3.5 py-2 font-mono text-xs text-text-muted">
             <i className="pulse-dot h-[7px] w-[7px] rounded-full bg-primary" />v2.4 · 128,402 runs today
           </span>
-          <h1 className="mt-8 font-display text-display font-bold leading-[0.94] tracking-display">
-            <SplitText text="Turn repetition into flow." accent={["flow."]} />
-          </h1>
-          <p data-m="blur-in" className="mt-5 text-[22px] font-semibold tracking-[-0.02em] md:text-[26px]">반복 업무를, 흐름으로.</p>
-          <p data-m="blur-in" className="mt-4 max-w-[500px] text-text-muted">앱을 연결하고 규칙을 설계하면 NOVA Flow가 실행합니다. 팀은 판단이 필요한 일에만 집중하세요.</p>
-          <div data-m="blur-in" className="mt-10 flex flex-wrap gap-3.5">
+          <HeroTitle className="mt-8 font-display text-display font-bold leading-[0.94] tracking-display" parts={[{ t: "Turn repetition into" }, { t: "flow.", className: "text-primary" }]} />
+          <p data-hero-fade className="mt-5 text-[22px] font-semibold tracking-[-0.02em] md:text-[26px]">반복 업무를, 흐름으로.</p>
+          <p data-hero-fade className="mt-4 max-w-[500px] text-text-muted">앱을 연결하고 규칙을 설계하면 NOVA Flow가 실행합니다. 팀은 판단이 필요한 일에만 집중하세요.</p>
+          <div data-hero-fade className="mt-10 flex flex-wrap gap-3.5">
             <a data-m="magnetic" data-cta href={CTA_HREF} className={btn}>무료 데모 신청</a>
             <span className="inline-flex items-center rounded-control border border-border px-5 py-4 font-mono text-sm">$ npx nova init</span>
           </div>
         </div>
-        <div data-m="blur-in"><Terminal stage={3} label="워크플로 데모: 메일 트리거가 AI 분류를 거쳐 시트에 기록되는 흐름" /></div>
+        <div data-hero-visual="rise" data-hero-tilt><Terminal intro stage={3} label="워크플로 데모: 메일 트리거가 AI 분류를 거쳐 시트에 기록되는 흐름" /></div>
       </div>
 
       <div className={`${wrap} relative z-10`}>
-        <dl className="grid grid-cols-2 gap-y-8 border-t border-border py-8 lg:grid-cols-4">
+        <dl data-hero-fade className="grid grid-cols-2 gap-y-8 border-t border-border py-8 lg:grid-cols-4">
           {stats.map(([n, l]) => (
             <div key={l}>
               <dt className="sr-only">{l}</dt>

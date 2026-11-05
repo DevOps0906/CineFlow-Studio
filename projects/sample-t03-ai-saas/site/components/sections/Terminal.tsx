@@ -23,7 +23,8 @@ const LOGS = [
   ["✓", "09:41:03", "sheets.append", "12 rows · 2 → review"],
 ];
 
-export default function Terminal({ stage, label, file = "flows/invoice-triage.yaml" }: { stage: Stage; label: string; file?: string }) {
+export default function Terminal({ stage, label, file = "flows/invoice-triage.yaml", intro = false }: { stage: Stage; label: string; file?: string; intro?: boolean }) {
+  const pop = intro ? { "data-hero-pop": "" } : {};
   return (
     <figure className="overflow-hidden rounded-card bg-surface shadow-card">
       <div className="flex items-center gap-2 border-b border-border px-4 py-3.5 font-mono text-xs text-text-muted">
@@ -38,7 +39,7 @@ export default function Terminal({ stage, label, file = "flows/invoice-triage.ya
         {NODES.map((n) => {
           const on = stage >= n.on;
           return (
-            <g key={n.id} className={on ? "node-on" : undefined}>
+            <g key={n.id} className={on ? "node-on" : undefined} {...pop}>
               <rect x={n.x} y={n.y} width={n.w} height="54" rx="8" fill="var(--color-bg)" stroke={on ? "var(--color-primary)" : "var(--color-border)"} />
               <circle cx={n.x + n.w - 14} cy={n.y + 14} r="3" fill={on ? "var(--color-primary)" : "var(--color-border)"} />
               <text x={n.x + 14} y={n.y + 23} fill="var(--color-text)" fontFamily="var(--font-mono)" fontSize="13" fontWeight="500">{n.t}</text>
@@ -49,7 +50,7 @@ export default function Terminal({ stage, label, file = "flows/invoice-triage.ya
       </svg>
       <div className="min-h-[110px] border-t border-border px-4 py-4 font-mono text-[12px] leading-[1.95] text-text-muted md:text-[12.5px]">
         {LOGS.slice(0, stage).map(([m, t, a, b], i) => (
-          <p key={a} className={`truncate ${i === stage - 1 ? "caret" : ""}`}>
+          <p key={a} {...(intro ? { "data-hero-fade": "" } : {})} className={`truncate ${i === stage - 1 ? "caret" : ""}`}>
             <b className="font-medium text-primary">{m}</b> {t} <span className="text-signal">{a}</span> <span className="hidden sm:inline">{b}</span>
           </p>
         ))}

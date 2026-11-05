@@ -2,6 +2,7 @@
 import MotionInit from "@/components/MotionInit";
 import type { CSSProperties } from "react";
 import Spotlight from "./Spotlight";
+import HeroTitle from "@/components/HeroTitle";
 
 const CTA = "mailto:hello@example.com?subject=LUM%C3%89%20Collection";
 const wrap = "mx-auto max-w-[1440px] px-6 md:px-14";
@@ -32,19 +33,19 @@ const PRODUCTS = [
 export default function Page() {
   return (
     <Spotlight>
-      <header id="top" className="relative isolate flex min-h-svh flex-col overflow-hidden">
-        <Blobs />
+      <header id="top" data-hero className="relative isolate flex min-h-svh flex-col overflow-hidden">
+        <div data-hero-depth="-0.5" className="absolute inset-0 -z-10"><Blobs /></div>
         <nav aria-label="주 메뉴" className={`${wrap} caption flex w-full items-center justify-between pt-8 text-text-muted`}>
           <a href="#top" className="font-display text-2xl normal-case tracking-[0.06em] text-text">Lumé</a>
           <ul className="hidden gap-8 md:flex"><li><a className="hover:text-text" href="#collection">Collection</a></li><li><a className="hover:text-text" href="#ritual">Ritual</a></li><li><a className="hover:text-text" href="#pearl">Pearl</a></li></ul>
           <span>Bag (0)</span>
         </nav>
         <div className={`${wrap} relative flex w-full flex-1 flex-col items-center justify-center pb-16 pt-10 text-center`}>
-          <p data-m="blur-in" className="caption text-text-muted">Liquid Pearl Collection · 2027</p>
-          <h1 data-m="blur-in" className="mt-4 font-display text-display leading-[0.9] tracking-display">Lumé</h1>
-          <div data-m="blur-in" className="glass -mt-[0.35em] w-full max-w-[440px] p-7 text-left md:-mt-[0.45em] md:p-9">
+          <p data-hero-fade className="caption text-text-muted">Liquid Pearl Collection · 2027</p>
+          <HeroTitle className="mt-4 w-full font-display text-display leading-[0.9] tracking-display" parts={[{ t: "Lumé" }]} />
+          <div data-hero-visual="rise" className="relative z-10 -mt-[0.35em] w-full max-w-[440px] md:-mt-[0.45em]"><div data-hero-tilt className="glass p-7 text-left md:p-9">
             <div className="flex items-center gap-6">
-              <div className="pearl h-20 w-20 shrink-0 md:h-24 md:w-24" />
+              <div data-hero-pop className="pearl h-20 w-20 shrink-0 md:h-24 md:w-24" />
               <div>
                 <p className="caption text-text-muted">New · Serum</p>
                 <p className="mt-1 font-display text-3xl leading-tight">Liquid Pearl</p>
@@ -53,7 +54,7 @@ export default function Page() {
             </div>
             <p className="mt-6 text-text-muted">진주 펩타이드 3%가 빛을 머금은 피부 결을 만듭니다. 주얼리처럼 빛나는 스킨케어.</p>
             <a data-m="magnetic" data-cta href="#collection" className="caption mt-7 inline-block rounded-full bg-primary px-7 py-3.5 text-primary-fg">컬렉션 보기</a>
-          </div>
+          </div></div>
         </div>
       </header>
 

@@ -29,4 +29,4 @@
 @media (width >= 1200px) {
   .theme-t08 { --text-display: 216px; --text-h1: 92px; --text-h2: 48px; --text-body: 18px; --text-caption: 12px; }
 }
-html:has(.theme-t08) { background-color: #0c0d0f; color-scheme: dark; }
+.theme-t08 { color-scheme: dark; }

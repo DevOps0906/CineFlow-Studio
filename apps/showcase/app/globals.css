@@ -71,3 +71,15 @@ html { background: #0b0b0b; scroll-behavior: smooth; }
 [data-pin-on] [data-panel] { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .6s cubic-bezier(.16, 1, .3, 1); pointer-events: none; }
 [data-pin-on][data-active="0"] [data-panel="0"], [data-pin-on][data-active="1"] [data-panel="1"],
 [data-pin-on][data-active="2"] [data-panel="2"], [data-pin-on][data-active="3"] [data-panel="3"] { opacity: 1; transform: none; pointer-events: auto; }
+
+/* ---------- Hero Kit (lib/hero.ts) ---------- */
+.hero-word { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.22em 0.08em 0.14em; margin: -0.22em -0.08em -0.14em; }
+.hero-char { display: inline-block; }
+/* Pre-paint hidden states (only when <html data-motion="on">, set before first paint for non-reduced-motion users). */
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) [data-hero-title] [data-char] { transform: translateY(112%); }
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) :is([data-hero-fade], [data-hero-visual], [data-hero-pop], [data-hero-draw]) { opacity: 0; }
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) [data-hero-bar] { transform: scaleX(0); }
+/* If JS never takes over, reveal after 3s. */
+html[data-motion="on"] [data-hero]:not([data-hero-ready]) :is([data-char], [data-hero-fade], [data-hero-visual], [data-hero-pop], [data-hero-draw], [data-hero-bar]) { animation: hero-fallback 0.01s 3s forwards; }
+@keyframes hero-fallback { to { opacity: 1; transform: none; } }
+[data-motion-ready] [data-marquee] { animation: none; }

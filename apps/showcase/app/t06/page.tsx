@@ -1,6 +1,7 @@
 // T06 VOIDRUNNER — motions: M01 Blur-in, M04 Pinned story (sector map), M07 Magnetic CTA, M08 Model reveal (Relic)
 import MotionInit from "@/components/MotionInit";
 import Relic from "./Relic";
+import HeroTitle from "@/components/HeroTitle";
 
 const CTA = "mailto:play@example.com?subject=VOIDRUNNER%20Pre-register";
 const wrap = "mx-auto max-w-[1440px] px-6 md:px-14";
@@ -32,7 +33,7 @@ function SectorMap({ active, live = false }: { active?: number; live?: boolean }
 export default function Page() {
   return (
     <>
-      <header id="top" className="scan relative isolate flex min-h-svh flex-col overflow-hidden">
+      <header id="top" data-hero className="scan relative isolate flex min-h-svh flex-col overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_70%_40%,rgba(255,61,139,.16),transparent_65%),radial-gradient(800px_500px_at_20%_80%,rgba(61,242,255,.10),transparent_60%)]" />
         <div aria-hidden className="floor -z-10" />
         <nav aria-label="주 메뉴" className={`${wrap} caption relative z-10 flex w-full items-center justify-between pt-7 text-text-muted`}>
@@ -41,22 +42,20 @@ export default function Page() {
           <span className="text-accent">Season 0</span>
         </nav>
         <div className={`${wrap} relative z-10 grid w-full flex-1 items-center gap-6 pb-12 pt-6 lg:grid-cols-[1.1fr_1fr]`}>
-          <div className="order-2 lg:order-1">
-            <p data-m="blur-in" className="caption text-accent">// Signal lost · Sector 07</p>
-            <h1 data-m="blur-in" className="mt-5 font-display text-display font-bold uppercase leading-[0.86] tracking-display">
-              Void<br /><span className="glow-pink text-primary">Runner</span>
-            </h1>
-            <p data-m="blur-in" className="mt-6 max-w-md text-text-muted">신호가 끊긴 도시에서 마지막 기억을 되찾으세요. 2027년 봄, PC와 콘솔 동시 출시.</p>
-            <div data-m="blur-in" className="mt-9 flex flex-wrap gap-3">
+          <div className="order-2 lg:order-1" data-hero-out="0.5">
+            <p data-hero-fade className="caption text-accent">// Signal lost · Sector 07</p>
+            <HeroTitle kinetic className="mt-5 font-display text-display font-bold uppercase leading-[0.86] tracking-display" parts={[{ t: "Void", br: true }, { t: "Runner", className: "glow-pink text-primary" }]} />
+            <p data-hero-fade className="mt-6 max-w-md text-text-muted">신호가 끊긴 도시에서 마지막 기억을 되찾으세요. 2027년 봄, PC와 콘솔 동시 출시.</p>
+            <div data-hero-fade className="mt-9 flex flex-wrap gap-3">
               <a data-m="magnetic" data-cta href="#prereg" className="caption bg-primary px-7 py-4 font-bold text-primary-fg [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]">사전예약</a>
               <span className="caption border border-accent/60 px-6 py-4 text-accent">▶ Trailer 01:12</span>
             </div>
-            <p className="caption mt-8 text-text-muted">PC · PS5 · Xbox Series X|S</p>
+            <p data-hero-fade className="caption mt-8 text-text-muted">PC · PS5 · Xbox Series X|S</p>
           </div>
-          <div className="order-1 mx-auto w-[min(78vw,560px)] lg:order-2"><Relic /></div>
+          <div data-hero-depth="0.6" className="order-1 mx-auto w-[min(78vw,560px)] lg:order-2"><div data-hero-visual="scale"><Relic /></div></div>
         </div>
-        <span aria-hidden className="hud-corner left-4 top-4 border-l border-t md:left-8 md:top-8" />
-        <span aria-hidden className="hud-corner bottom-4 right-4 border-b border-r md:bottom-8 md:right-8" />
+        <span aria-hidden data-hero-pop className="hud-corner left-4 top-4 border-l border-t md:left-8 md:top-8" />
+        <span aria-hidden data-hero-pop className="hud-corner bottom-4 right-4 border-b border-r md:bottom-8 md:right-8" />
       </header>
 
       <main id="main">

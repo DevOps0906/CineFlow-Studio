@@ -2,6 +2,7 @@
 import MotionInit from "@/components/MotionInit";
 import type { CSSProperties } from "react";
 import SplitText from "@/components/SplitText";
+import HeroTitle from "@/components/HeroTitle";
 
 const CTA = "mailto:atelier@example.com?subject=MAISON%20%C3%89CRU%20Private%20viewing";
 const wrap = "mx-auto max-w-[1440px] px-6 md:px-14";
@@ -30,7 +31,7 @@ function Garment({ look, className = "" }: { look: Look; className?: string }) {
 export default function Page() {
   return (
     <>
-      <header id="top" className="grain relative overflow-hidden">
+      <header id="top" data-hero className="grain relative overflow-hidden">
         <nav aria-label="주 메뉴" className={`${wrap} caption relative z-10 flex items-center justify-between border-b border-border py-6`}>
           <a href="#top" className="font-medium">Maison Écru</a>
           <span className="hidden text-text-muted md:inline">SS27 — Collection 04</span>
@@ -41,29 +42,26 @@ export default function Page() {
           </ul>
         </nav>
         <div className={`${wrap} relative z-10 grid gap-10 pb-14 pt-10 md:grid-cols-12 md:gap-8 md:pb-20 md:pt-16`}>
-          <div className="md:col-span-8">
-            <p data-m="blur-in" className="caption text-primary">Spring Summer 2027 · Paris / Seoul</p>
-            <h1 className="mt-6 font-display tracking-display">
-              <span data-m="blur-in" className="block text-h1 italic leading-none">Maison</span>
-              <span data-m="blur-in" className="block pt-[0.2em] text-display leading-[0.86]">ÉCRU</span>
-            </h1>
+          <div className="md:col-span-8" data-hero-out="0.5">
+            <p data-hero-fade className="caption text-primary">Spring Summer 2027 · Paris / Seoul</p>
+            <HeroTitle className="mt-6 font-display tracking-display" parts={[{ t: "Maison", className: "block text-h1 italic leading-none" }, { t: "ÉCRU", className: "block pt-[0.2em] text-display leading-[0.86]" }]} />
             <p className="mt-8 font-display text-h2 italic leading-tight"><SplitText text="Undyed. Unhurried. Unseasonal." /></p>
-            <p data-m="blur-in" className="mt-5 max-w-md text-text-muted">염색하지 않은 실과 천천히 짠 원단. 계절이 지나도 남는 옷을 만듭니다.</p>
-            <div data-m="blur-in" className="mt-9 flex flex-wrap items-center gap-6">
+            <p data-hero-fade className="mt-5 max-w-md text-text-muted">염색하지 않은 실과 천천히 짠 원단. 계절이 지나도 남는 옷을 만듭니다.</p>
+            <div data-hero-fade className="mt-9 flex flex-wrap items-center gap-6">
               <a data-cta href="#lookbook" className="caption bg-text px-7 py-4 text-bg transition-colors hover:bg-primary hover:text-primary-fg">룩북 보기</a>
               <a href={CTA} className="caption border-b border-text py-2 hover:border-primary hover:text-primary">프라이빗 뷰잉</a>
             </div>
           </div>
           <figure className="md:col-span-4 md:self-end">
-            <div data-m="parallax" data-parallax="5"><Garment look={LOOKS[0]} /></div>
-            <figcaption className="caption mt-4 flex justify-between text-text-muted"><span>Look 01</span><span>Raw Linen Coat</span></figcaption>
+            <div data-hero-depth="0.5"><div data-m="parallax" data-parallax="5"><div data-hero-visual="clip"><Garment look={LOOKS[0]} /></div></div></div>
+            <figcaption data-hero-fade className="caption mt-4 flex justify-between text-text-muted"><span>Look 01</span><span>Raw Linen Coat</span></figcaption>
           </figure>
         </div>
       </header>
 
       <main id="main">
         <div aria-hidden className="overflow-hidden bg-text py-5 text-bg">
-          <div className="marquee font-display text-[32px] italic md:text-[44px]" style={{ "--dur": "48s" } as CSSProperties}>
+          <div data-marquee="48" className="marquee font-display text-[32px] italic md:text-[44px]" style={{ "--dur": "48s" } as CSSProperties}>
             {[0, 1].map((k) => <span key={k} className="whitespace-nowrap pr-10">Spring Summer 2027 ✶ Raw linen ✶ Undyed silk ✶ Plant-dyed madder ✶ Made in Seoul ✶ Spring Summer 2027 ✶ Raw linen ✶ Undyed silk ✶ Plant-dyed madder ✶ Made in Seoul ✶&nbsp;</span>)}
           </div>
         </div>

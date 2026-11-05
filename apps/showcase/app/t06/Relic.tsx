@@ -20,7 +20,12 @@ const hasWebGL = () => {
 export default function Relic() {
   const [state, setState] = useState<State>("idle");
   useEffect(() => {
-    setState(window.matchMedia("(prefers-reduced-motion: reduce)").matches || !hasWebGL() ? "poster" : "loading");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !hasWebGL()) { setState("poster"); return; }
+    // three.js is ~240KB: start it once the main thread is idle so it doesn't block first interaction. The poster shows meanwhile.
+    const ric: (cb: () => void, o?: { timeout: number }) => number = window.requestIdleCallback ?? ((cb) => window.setTimeout(cb, 300));
+    const cic: (id: number) => void = window.cancelIdleCallback ?? window.clearTimeout;
+    const id = ric(() => setState("loading"), { timeout: 2000 });
+    return () => cic(id);
   }, []);
   const onReady = useCallback(() => setState("ready"), []);
   const onFail = useCallback(() => setState("poster"), []);

@@ -1,4 +1,5 @@
 import Dial from "./Dial";
+import HeroTitle from "@/components/HeroTitle";
 import Media from "./Media";
 import { Finishing, Movement, Sapphire } from "./Visuals";
 
@@ -12,7 +13,8 @@ export function Hero() {
   return (
     <header id="top" data-hero className="grain relative isolate overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(1200px_700px_at_72%_45%,#1c2647_0%,#0b1020_62%)]" />
-      <div aria-hidden className="absolute left-[64%] top-[46%] -z-10 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,138,90,.18),transparent_60%)] blur-xl" />
+      <div aria-hidden className="hero-spot absolute inset-0 -z-10" />
+      <div aria-hidden data-hero-depth="-0.3" className="absolute left-[64%] top-[46%] -z-10 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,138,90,.18),transparent_60%)] blur-xl" />
 
       <nav aria-label="주 메뉴" className={`${wrap} caption relative z-10 flex items-center justify-between pt-8 text-text-muted`}>
         <a href="#top" className="font-medium text-text">Aurum Noir</a>
@@ -24,21 +26,19 @@ export function Hero() {
       </nav>
 
       <div className={`${wrap} relative z-10 grid gap-14 pb-12 pt-12 lg:min-h-[calc(100svh-64px)] lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-8 lg:pb-28 lg:pt-0`}>
-        <div className="order-2 lg:order-1">
-          <p data-m="blur-in" className="caption text-primary">Calibre 01 — Manufacture 2026</p>
-          <h1 data-m="blur-in" className="mt-6 font-display text-display italic leading-[0.86] tracking-display">
-            The weight<br />of <span className="not-italic text-primary">time</span>
-          </h1>
-          <p data-m="blur-in" className="mt-8 max-w-[440px] text-text-muted">1,200개의 부품, 320시간의 손길. 가장 조용한 정밀함이 손목 위에서 완성됩니다.</p>
-          <div data-m="blur-in" className="mt-11 flex flex-wrap items-center gap-7">
+        <div className="order-2 lg:order-1" data-hero-out="0.5">
+          <p data-hero-fade className="caption text-primary">Calibre 01 — Manufacture 2026</p>
+          <HeroTitle className="mt-6 font-display text-display italic leading-[0.86] tracking-display" parts={[{ t: "The weight", br: true }, { t: "of" }, { t: "time", className: "not-italic text-primary" }]} />
+          <p data-hero-fade className="mt-8 max-w-[440px] text-text-muted">1,200개의 부품, 320시간의 손길. 가장 조용한 정밀함이 손목 위에서 완성됩니다.</p>
+          <div data-hero-fade className="mt-11 flex flex-wrap items-center gap-7">
             <a data-m="magnetic" data-cta href={CTA_HREF} className={pill}>컬렉션 문의하기</a>
             <span className="caption hidden text-text-muted sm:inline">↓ Scroll to unveil</span>
           </div>
         </div>
-        <div className="order-1 mx-auto w-[min(82vw,560px)] lg:order-2 lg:w-[min(560px,62svh)]"><Dial /></div>
+        <div data-hero-depth="0.45" className="order-1 mx-auto w-[min(82vw,560px)] lg:order-2 lg:w-[min(560px,62svh)]"><div data-hero-visual="scale"><Dial /></div></div>
       </div>
 
-      <dl className={`${wrap} relative z-10 grid grid-cols-3 gap-4 border-t border-border py-8 lg:absolute lg:bottom-12 lg:right-0 lg:mx-0 lg:flex lg:gap-12 lg:border-0 lg:py-0`}>
+      <dl data-hero-fade className={`${wrap} relative z-10 grid grid-cols-3 gap-4 border-t border-border py-8 lg:absolute lg:bottom-12 lg:right-0 lg:mx-0 lg:flex lg:gap-12 lg:border-0 lg:py-0`}>
         {SPECS.map(([k, v]) => (
           <div key={k}>
             <dt className="caption text-[10px] tracking-[0.12em] text-text-muted md:text-[11px] md:tracking-[0.24em]">{k}</dt>
