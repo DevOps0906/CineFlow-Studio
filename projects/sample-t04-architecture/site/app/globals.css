@@ -1,0 +1,38 @@
+﻿@import "tailwindcss";
+
+:root { --bg: #e9e6e0; --surface: #f5f3ef; --ink: #1a1917; --muted: #4a4741; --accent: #6b4423; --dark: #1f1e1b; }
+
+@theme inline {
+  --color-bg: var(--bg); --color-surface: var(--surface); --color-ink: var(--ink);
+  --color-muted: var(--muted); --color-accent: var(--accent); --color-dark: var(--dark);
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+html { background: var(--bg); }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); line-height: 1.6; font-size: 16px; overflow-x: clip; }
+@media (min-width: 768px) { body { font-size: 17px; } }
+@media (min-width: 1440px) { body { font-size: 18px; } }
+
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; }
+h1 { font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: 28px; line-height: 1.15; }
+@media (min-width: 768px) { h1 { font-size: 64px; } h2 { font-size: 40px; } }
+@media (min-width: 1440px) { h1 { font-size: 92px; } h2 { font-size: 54px; } }
+
+.section-pad { padding-block: 96px; }
+@media (min-width: 768px) { .section-pad { padding-block: 128px; } }
+@media (min-width: 1440px) { .section-pad { padding-block: 160px; } }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: #fff; padding: 8px 16px; z-index: 100; }
+.skip-link:focus { left: 8px; top: 8px; }
+
+[data-motion-ready] [data-m="blur-in"] { opacity: 0; filter: blur(12px); transform: translateY(16px); }
+[data-motion-ready] [data-m="reveal"] { clip-path: inset(0 0 100% 0); }
+
+/* M04: step emphasis only while pinned */
+[data-pin-on] [data-step] { opacity: .4; transition: opacity .4s; }
+[data-pin-on][data-active="0"] [data-step="0"],
+[data-pin-on][data-active="1"] [data-step="1"],
+[data-pin-on][data-active="2"] [data-step="2"] { opacity: 1; }
