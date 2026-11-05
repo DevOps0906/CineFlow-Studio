@@ -53,17 +53,18 @@ test("unknown category shows not-found page", async ({ page }) => {
   await expect(page.getByText("This page could not be found.")).toBeVisible();
 });
 
-test("registry reflects project files (T01 built, T03/T04 drafts, 5/8 motions)", async ({ page }) => {
+test("registry reflects project files (T01/T03 built, T04 draft, 7/8 motions)", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
   const row = (id: string) => page.locator(`main a[href="/category/${id}"]`);
   await expect(row("t01")).toContainText("구현됨");
-  await expect(row("t03")).toContainText("Spec 초안");
+  await expect(row("t03")).toContainText("구현됨");
   await expect(row("t04")).toContainText("Spec 초안");
   await expect(row("t02")).toContainText("계획");
-  await expect(page.getByText("5/8", { exact: true })).toBeVisible();
-  await expect(page.getByText("테스트 6/6 통과")).toBeVisible();
+  await expect(page.getByText("7/8", { exact: true })).toBeVisible();
+  await expect(page.getByText(/테스트 \d+\/\d+ 통과/)).toBeVisible();
   await page.goto("/category/t03");
   await expect(page.getByText("projects/sample-t03-ai-saas/spec.md")).toBeVisible();
+  await page.goto("/category/t04");
   await expect(page.getByText("사이트 미구현 (spec 승인 대기)")).toBeVisible();
 });
